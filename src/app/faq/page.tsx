@@ -3,13 +3,15 @@ import { CircleHelp } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { faqItems } from "@/lib/site-data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "FAQ – DayZ Cheats, BattlEye & Compatibility",
   description:
     "Answers about DayZ Cheats, BattlEye risk, ESP and Aimbot features, system compatibility, updates, and refunds.",
-  alternates: { canonical: "/faq/" },
-};
+  path: "/faq/",
+  keywords: ["DayZ cheats FAQ", "BattlEye", "DayZ ESP", "DayZ aimbot"],
+});
 
 const faqPageSchema = {
   "@context": "https://schema.org",

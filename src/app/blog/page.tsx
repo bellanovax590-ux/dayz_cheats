@@ -8,9 +8,11 @@ import {
   Tag,
 } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
+import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { blogPosts } from "@/lib/blog/index";
-
-const SITE_URL = "https://dayzcheat.net";
+import { blogIndexOgImage } from "@/lib/blog/seo";
+import { createPageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site-url";
 
 const blogListSchema = {
   "@context": "https://schema.org",
@@ -27,11 +29,11 @@ const blogListSchema = {
   })),
 };
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "DayZ Cheats Blog – ESP, Aimbot & BattlEye Guides",
   description:
     "Long-form DayZ cheats guides on ESP setup, aimbot FOV, loot filters, radar, BattlEye checks, and buying tips. Plain English SEO articles from dayzcheat.net.",
-  alternates: { canonical: "/blog/" },
+  path: "/blog/",
   keywords: [
     "DayZ cheats",
     "DayZ ESP",
@@ -40,13 +42,8 @@ export const metadata: Metadata = {
     "BattlEye",
     "dayzcheat.net",
   ],
-  openGraph: {
-    title: "DayZ Cheats Blog – Guides & Tips",
-    description:
-      "In-depth DayZ ESP, aimbot, and radar guides written for players who want clear setup advice and honest BattlEye risk notes.",
-    url: "https://dayzcheat.net/blog/",
-  },
-};
+  ogImage: blogIndexOgImage(),
+});
 
 export default function BlogPage() {
   const posts = [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -76,12 +73,14 @@ export default function BlogPage() {
                 href={`/blog/${post.slug}/`}
                 className="relative block overflow-hidden"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <OptimizedPicture
                   src={post.coverImage}
                   alt={post.coverAlt}
-                  className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  imgClassName="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                   loading={index < 3 ? "eager" : "lazy"}
+                  fetchPriority={index === 0 ? "high" : undefined}
+                  width={720}
+                  height={450}
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#07050f]/80 via-transparent to-transparent" />
               </Link>

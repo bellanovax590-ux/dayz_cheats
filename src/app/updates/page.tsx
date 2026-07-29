@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Updates",
-  description: "DayZ Cheats product updates and maintenance notes.",
-  alternates: { canonical: "/updates/" },
-};
+  description:
+    "DayZ Cheats product updates, maintenance notes, and BattlEye status guidance.",
+  path: "/updates/",
+});
 
 export default function UpdatesPage() {
   return (

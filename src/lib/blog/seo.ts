@@ -1,12 +1,13 @@
 import type { BlogPost } from "@/lib/blog/types";
-
-const SITE_URL = "https://dayzcheat.net";
+import { DEFAULT_OG_IMAGE } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site-url";
+import { webpSrc } from "@/lib/images";
 
 export function blogPostMetadata(post: BlogPost) {
   const url = `${SITE_URL}/blog/${post.slug}/`;
   const imageUrl = post.coverImage.startsWith("http")
     ? post.coverImage
-    : `${SITE_URL}${post.coverImage}`;
+    : `${SITE_URL}${webpSrc(post.coverImage)}`;
 
   return {
     title: post.metaTitle,
@@ -19,7 +20,7 @@ export function blogPostMetadata(post: BlogPost) {
       description: post.metaDescription,
       url,
       publishedTime: post.date,
-      images: [{ url: imageUrl, alt: post.coverAlt }],
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: post.coverAlt }],
     },
     twitter: {
       card: "summary_large_image" as const,
@@ -34,7 +35,7 @@ export function blogPostingSchema(post: BlogPost) {
   const url = `${SITE_URL}/blog/${post.slug}/`;
   const imageUrl = post.coverImage.startsWith("http")
     ? post.coverImage
-    : `${SITE_URL}${post.coverImage}`;
+    : `${SITE_URL}${webpSrc(post.coverImage)}`;
 
   return {
     "@context": "https://schema.org",
@@ -53,6 +54,10 @@ export function blogPostingSchema(post: BlogPost) {
       "@type": "Organization",
       name: "DayZ Cheats",
       url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/images/zadeyo-logo.webp`,
+      },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
@@ -60,4 +65,8 @@ export function blogPostingSchema(post: BlogPost) {
     },
     keywords: post.keywords.join(", "),
   };
+}
+
+export function blogIndexOgImage() {
+  return DEFAULT_OG_IMAGE;
 }

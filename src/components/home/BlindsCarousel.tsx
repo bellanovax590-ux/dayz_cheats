@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 
 export type CarouselSlide = {
   src: string;
@@ -52,8 +53,8 @@ export function BlindsCarousel({
   const previous = slides[prevIndex];
   const frameClass =
     size === "large"
-      ? "aspect-[16/8] min-h-[280px] sm:min-h-[420px] lg:min-h-[520px]"
-      : "aspect-[16/9]";
+      ? "aspect-[16/10] min-h-[200px] sm:aspect-[16/8] sm:min-h-[320px] lg:min-h-[480px]"
+      : "aspect-[16/9] min-h-[180px]";
 
   return (
     <div className={`w-full ${className}`}>
@@ -70,11 +71,14 @@ export function BlindsCarousel({
         tabIndex={0}
         aria-label="Show next DayZ cheat preview"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <OptimizedPicture
           src={current.src}
           alt={current.alt}
-          className="absolute inset-0 h-full w-full object-cover"
+          imgClassName="absolute inset-0 h-full w-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          width={1280}
+          height={640}
         />
 
         {animating ? (
@@ -92,15 +96,17 @@ export function BlindsCarousel({
                   animationDelay: `${blindIndex * 0.05}s`,
                 }}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <OptimizedPicture
                   src={previous.src}
                   alt=""
-                  className="blinds-strip-img max-w-none"
+                  imgClassName="blinds-strip-img max-w-none"
                   style={{
                     width: `${BLIND_COUNT * 100}%`,
                     left: `${-blindIndex * 100}%`,
                   }}
+                  loading="eager"
+                  width={1280}
+                  height={640}
                 />
               </div>
             ))}

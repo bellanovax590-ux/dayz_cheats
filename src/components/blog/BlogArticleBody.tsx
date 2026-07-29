@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import type { BlogBlock } from "@/lib/blog/types";
 
 type BlogArticleBodyProps = {
@@ -41,12 +42,13 @@ export function BlogArticleBody({ blocks }: BlogArticleBodyProps) {
               key={`img-${index}-${block.src}`}
               className={`${delayClass} overflow-hidden border border-white/10 bg-black/30`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <OptimizedPicture
                 src={block.src}
                 alt={block.alt}
-                className="aspect-[16/9] w-full object-cover"
+                imgClassName="aspect-[16/9] w-full object-cover"
                 loading="lazy"
+                width={960}
+                height={540}
               />
               {block.caption ? (
                 <figcaption className="border-t border-white/10 px-4 py-3 text-xs leading-relaxed text-[#a89ab8]">

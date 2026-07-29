@@ -31,12 +31,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    const initial =
-      saved === "light" || saved === "dark"
-        ? saved
-        : window.matchMedia("(prefers-color-scheme: light)").matches
-          ? "light"
-          : "dark";
+    const initial: ThemeMode =
+      saved === "light" || saved === "dark" ? saved : "dark";
     setThemeState(initial);
     applyTheme(initial);
   }, []);

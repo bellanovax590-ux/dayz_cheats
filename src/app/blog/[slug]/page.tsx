@@ -10,6 +10,7 @@ import {
   Tag,
 } from "lucide-react";
 import { BlogArticleBody } from "@/components/blog/BlogArticleBody";
+import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { blogPosts } from "@/lib/blog/index";
 import { blogPostMetadata, blogPostingSchema } from "@/lib/blog/seo";
 import { CHECKOUT_URL } from "@/lib/checkout";
@@ -61,12 +62,14 @@ export default async function BlogPostPage({ params }: PageProps) {
           </Link>
 
           <div className="blog-fade-item blog-fade-delay-1 relative mt-6 overflow-hidden border border-white/10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <OptimizedPicture
               src={post.coverImage}
               alt={post.coverAlt}
-              className="aspect-[16/9] w-full object-cover"
+              imgClassName="aspect-[16/9] w-full object-cover"
               loading="eager"
+              fetchPriority="high"
+              width={1200}
+              height={675}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#07050f]/70 via-transparent to-transparent" />
           </div>
@@ -134,12 +137,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                 href={`/blog/${item.slug}/`}
                 className={`blog-card blog-fade-item blog-fade-delay-${index + 1} group overflow-hidden border border-white/10 transition hover:border-[#bf5aff]/45`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <OptimizedPicture
                   src={item.coverImage}
                   alt={item.coverAlt}
-                  className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                  imgClassName="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
                   loading="lazy"
+                  width={720}
+                  height={450}
                 />
                 <div className="p-4">
                   <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#bf5aff]">

@@ -10,6 +10,7 @@ import {
 import { FeatureStrandCards } from "@/components/shared/FeatureStrandCards";
 import { BlindsCarousel } from "@/components/home/BlindsCarousel";
 import { DISCORD_SERVER_ID, DISCORD_URL } from "@/lib/discord";
+import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { CHECKOUT_URL } from "@/lib/checkout";
 
 const cheatSlides = [
@@ -122,7 +123,7 @@ export function HomePage() {
               return (
                 <article
                   key={item.title}
-                  className="border border-white/10 bg-[rgba(18,10,32,0.85)] p-5"
+                  className="why-choose-card border border-white/10 bg-[rgba(18,10,32,0.85)] p-5"
                 >
                   <div className="mb-3 flex h-10 w-10 items-center justify-center border border-[#bf5aff]/35 bg-[#bf5aff]/10 text-[#bf5aff]">
                     <Icon className="h-4 w-4" aria-hidden />
@@ -183,7 +184,7 @@ function HeroBlock() {
 
           <h1
             id="hero-heading"
-            className="glow-text mt-6 text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl"
+            className="glow-text mt-6 text-3xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
             DayZ
             <span className="block text-[#bf5aff]">Cheats</span>
@@ -248,13 +249,14 @@ function HeroBlock() {
         <div className="relative mx-auto flex w-full max-w-md items-end justify-center lg:max-w-none lg:justify-end">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_55%_70%,rgba(70,30,110,0.28),transparent_55%)] blur-2xl" />
           <div className="character-magic relative z-10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/dayz-character-cutout.png?v=3"
+            <OptimizedPicture
+              src="/images/dayz-character-cutout.png"
               alt="DayZ survivor character with purple magic branch shading"
               width={560}
               height={750}
-              className="h-auto w-full max-w-[420px] object-contain lg:max-w-[480px]"
+              imgClassName="h-auto w-full max-w-[420px] object-contain lg:max-w-[480px]"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
         </div>

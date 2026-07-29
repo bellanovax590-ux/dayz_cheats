@@ -1,9 +1,8 @@
 import type { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog";
+import { SITE_URL } from "@/lib/site-url";
 
 export const dynamic = "force-static";
-
-const SITE_URL = "https://dayzcheat.net";
 
 const staticPages: Array<{
   path: string;

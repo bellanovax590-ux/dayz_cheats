@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { features } from "@/lib/site-data";
 import { SandParticles } from "@/components/shared/SandParticles";
 
@@ -27,11 +28,9 @@ export function StrandCard({ slug, index }: StrandCardProps) {
         className="z-[4]"
       />
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/feature-bg-dayz.jpg"
-        alt=""
-        className="strand-card-bg absolute inset-0 z-0 h-full w-full object-cover opacity-35"
+      <div
+        className="strand-card-bg absolute inset-0 z-0 opacity-35"
+        aria-hidden
       />
       <div className="strand-card-overlay absolute inset-0 z-[2] bg-gradient-to-r from-[#07050f]/95 via-[#07050f]/80 to-[#07050f]/55" />
 
@@ -40,7 +39,7 @@ export function StrandCard({ slug, index }: StrandCardProps) {
         aria-hidden
       />
 
-      <div className="relative z-10 grid min-h-[220px] gap-6 p-5 sm:min-h-[260px] sm:grid-cols-[1.2fr_0.8fr] sm:p-7 lg:min-h-[300px] lg:p-8">
+      <div className="relative z-10 grid min-h-0 gap-5 p-4 sm:min-h-[260px] sm:grid-cols-[1.2fr_0.8fr] sm:gap-6 sm:p-7 lg:min-h-[300px] lg:p-8">
         <div className="flex flex-col justify-center">
           <div className="mb-4 flex items-center gap-3">
             <span className="font-mono text-xs tracking-[0.22em] text-[#bf5aff]">
@@ -51,7 +50,7 @@ export function StrandCard({ slug, index }: StrandCardProps) {
             </span>
           </div>
 
-          <h3 className="text-2xl font-black uppercase tracking-[0.06em] text-white sm:text-3xl lg:text-4xl">
+          <h3 className="text-xl font-black uppercase tracking-[0.06em] text-white sm:text-3xl lg:text-4xl">
             {firstWord}{" "}
             <span className="text-[#bf5aff]">
               {restTitle || feature.highlight}
@@ -83,11 +82,14 @@ export function StrandCard({ slug, index }: StrandCardProps) {
             href="/features/"
             className="strand-thumb relative w-full max-w-[280px] border border-[#bf5aff]/50 bg-black/40 p-2 transition group-hover:border-[#bf5aff] group-hover:shadow-[0_0_24px_rgba(191,90,255,0.25)]"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <OptimizedPicture
               src={feature.image}
               alt={`${feature.title} DayZ cheat preview`}
-              className="aspect-[16/10] w-full object-cover"
+              imgClassName="aspect-[16/10] w-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : undefined}
+              width={640}
+              height={400}
             />
             <span className="mt-2 block text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-[#bf5aff]">
               Click to view

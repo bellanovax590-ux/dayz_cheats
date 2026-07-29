@@ -1,10 +1,28 @@
 import type { Metadata } from "next";
+import { preload } from "react-dom";
 import { HomePage } from "@/components/home/HomePage";
 import { CHECKOUT_URL } from "@/lib/checkout";
+import { createPageMetadata } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site-url";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+preload("/images/dayz-character-cutout.webp", {
+  as: "image",
+  fetchPriority: "high",
+});
+
+export const metadata: Metadata = createPageMetadata({
+  title: "DayZ Cheats – ESP & Aimbot | DayZ",
+  description:
+    "DayZ Cheats with Player ESP, Loot ESP, Aimbot, and 2D radar. Compare features, pricing, FAQ, and guides on dayzcheat.net.",
+  path: "/",
+  keywords: [
+    "DayZ cheats",
+    "DayZ ESP",
+    "DayZ aimbot",
+    "DayZ radar",
+    "dayzcheat.net",
+  ],
+});
 
 const softwareApplicationSchema = {
   "@context": "https://schema.org",
@@ -12,7 +30,8 @@ const softwareApplicationSchema = {
   name: "DayZ Cheats",
   applicationCategory: "GameApplication",
   operatingSystem: "Windows",
-  url: "https://dayzcheat.net/",
+  url: `${SITE_URL}/`,
+  image: `${SITE_URL}/images/og-default.webp`,
   description:
     "DayZ Cheats is a third-party toolkit featuring ESP and Aimbot modules for DayZ, with pricing plans, updates, and support information.",
   offers: [
@@ -37,6 +56,20 @@ const softwareApplicationSchema = {
   ],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "DayZ Cheats",
+  url: SITE_URL,
+  description:
+    "Official DayZ Cheats site for ESP, Aimbot, pricing, FAQ, blog guides, and support.",
+  publisher: {
+    "@type": "Organization",
+    name: "DayZ Cheats",
+    logo: `${SITE_URL}/images/zadeyo-logo.webp`,
+  },
+};
+
 export default function Page() {
   return (
     <>
@@ -44,6 +77,12 @@ export default function Page() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(softwareApplicationSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema),
         }}
       />
       <HomePage />

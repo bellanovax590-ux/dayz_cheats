@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpRight, CreditCard, LifeBuoy, Mail } from "lucide-reac
 import { PageHero } from "@/components/layout/PageHero";
 import { CHECKOUT_URL } from "@/lib/checkout";
 import { DISCORD_SERVER_ID, DISCORD_URL } from "@/lib/discord";
+import { createPageMetadata } from "@/lib/seo";
 
 function DiscordIcon({ className }: { className?: string }) {
   return (
@@ -18,12 +19,12 @@ function DiscordIcon({ className }: { className?: string }) {
   );
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Support",
   description:
     "Contact DayZ Cheats support for access, updates, and billing questions.",
-  alternates: { canonical: "/support/" },
-};
+  path: "/support/",
+});
 
 export default function SupportPage() {
   return (

@@ -3,13 +3,15 @@ import Link from "next/link";
 import { CreditCard, ShieldAlert } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { PricingPlans } from "@/components/shared/PricingPlans";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Pricing – DayZ Cheats Access Plans",
   description:
     "Compare DayZ Cheats access periods: 1 Day, 1 Week, and 1 Month. Checkout opens on the external purchase page.",
-  alternates: { canonical: "/pricing/" },
-};
+  path: "/pricing/",
+  keywords: ["DayZ cheats pricing", "DayZ ESP buy", "DayZ aimbot access"],
+});
 
 export default function PricingPage() {
   return (
