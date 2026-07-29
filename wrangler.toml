@@ -1,4 +1,7 @@
-# Cloudflare Pages — static site (NOT Workers)
+# Cloudflare deploy — static Next.js export (out/)
 name = "dayz-cheats"
 compatibility_date = "2026-07-29"
 pages_build_output_dir = "out"
+
+[assets]
+directory = "./out"
