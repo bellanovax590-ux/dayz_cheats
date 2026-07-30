@@ -1,8 +1,11 @@
 {
+  "id": "https://dayzcheat.net/",
   "name": "DayZ Cheats – ESP & Aimbot",
   "short_name": "DayZ Cheats",
   "description": "DayZ cheats with ESP, aimbot, radar, pricing, and searchable blog guides on dayzcheat.net.",
+  "lang": "en-US",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#07050f",
   "theme_color": "#bf5aff",

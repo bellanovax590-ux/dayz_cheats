@@ -36,25 +36,44 @@ const softwareApplicationSchema = {
   url: `${SITE_URL}/`,
   image: `${SITE_URL}/images/og-default.webp`,
   description:
-    "DayZ Cheats is a third-party toolkit featuring ESP and Aimbot modules for DayZ, with pricing plans, updates, and support information.",
+    "DayZ Cheats is a third-party toolkit featuring ESP, aimbot, and 2D radar for DayZ with pricing, blog guides, and support on dayzcheat.net.",
+  inLanguage: "en-US",
   offers: [
     {
       "@type": "Offer",
       name: "1 Day Access",
       url: CHECKOUT_URL,
+      priceCurrency: "USD",
       availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "DayZ Cheats",
+        url: SITE_URL,
+      },
     },
     {
       "@type": "Offer",
       name: "1 Week Access",
       url: CHECKOUT_URL,
+      priceCurrency: "USD",
       availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "DayZ Cheats",
+        url: SITE_URL,
+      },
     },
     {
       "@type": "Offer",
       name: "1 Month Access",
       url: CHECKOUT_URL,
+      priceCurrency: "USD",
       availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "DayZ Cheats",
+        url: SITE_URL,
+      },
     },
   ],
 };

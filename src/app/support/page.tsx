@@ -5,6 +5,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { CHECKOUT_URL } from "@/lib/checkout";
 import { DISCORD_SERVER_ID, DISCORD_URL } from "@/lib/discord";
 import { createPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, contactPageSchema } from "@/lib/schema";
 
 function DiscordIcon({ className }: { className?: string }) {
   return (
@@ -20,18 +21,41 @@ function DiscordIcon({ className }: { className?: string }) {
 }
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Support",
+  title: "DayZ Cheats Support – Billing & Setup Help",
   description:
-    "Contact DayZ Cheats support for access, updates, and billing questions.",
+    "Contact DayZ Cheats support for loader access, HWID resets, billing, and update questions on dayzcheat.net.",
   path: "/support/",
+  keywords: [
+    "DayZ cheats support",
+    "dayz cheat help",
+    "HWID reset DayZ",
+    "dayzcheat.net support",
+  ],
 });
 
 export default function SupportPage() {
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "DayZ Cheats Support", path: "/support/" },
+            ]),
+          ),
+        }}
+      />
       <PageHero
         eyebrow="Support"
-        title="Customer support"
+        title="DayZ cheats customer support"
         description="Contact support with your order ID for access, update, or billing help. Join Discord for faster community help, or open checkout if you still need access."
         icon={LifeBuoy}
       />
@@ -45,7 +69,11 @@ export default function SupportPage() {
               </h2>
               <p className="mt-2 text-sm text-[#c8bfd8]">
                 Include your order ID and a short description of the issue.
-                Response times can vary during major DayZ patches.
+                Response times can vary during major DayZ patches. Read the{" "}
+                <Link href="/blog/dayz-cheats-support-checklist/" className="text-[#bf5aff] underline">
+                  support checklist
+                </Link>{" "}
+                before opening a ticket.
               </p>
             </div>
           </div>
@@ -67,7 +95,7 @@ export default function SupportPage() {
               className="inline-flex items-center gap-2 bg-[#bf5aff] px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#14081f] transition hover:bg-[#d946ef]"
             >
               <CreditCard className="h-4 w-4" aria-hidden />
-              Get cheats
+              Get DayZ Cheats
               <ArrowUpRight className="h-4 w-4" aria-hidden />
             </a>
           </div>

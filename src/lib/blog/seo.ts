@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { BlogPost } from "@/lib/blog/types";
 import { enhanceBlogSeo } from "@/lib/blog/keyword-seo";
+import { countBlogWords } from "@/lib/blog/types";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
 import { webpSrc } from "@/lib/images";
@@ -13,7 +14,7 @@ export function blogPostMetadata(post: BlogPost): Metadata {
     : `${SITE_URL}${webpSrc(post.coverImage)}`;
 
   return {
-    title: seo.metaTitle,
+    title: { absolute: `${seo.metaTitle} | DayZ Cheats` },
     description: seo.metaDescription,
     keywords: seo.keywords,
     alternates: {
@@ -59,6 +60,8 @@ export function blogPostingSchema(post: BlogPost) {
     image: imageUrl,
     datePublished: post.date,
     dateModified: post.date,
+    inLanguage: "en-US",
+    wordCount: countBlogWords(post.content),
     author: {
       "@type": "Organization",
       name: "DayZ Cheats",

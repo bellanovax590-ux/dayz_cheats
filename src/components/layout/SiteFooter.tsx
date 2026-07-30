@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { BookOpen, CircleHelp, LayoutGrid, LifeBuoy } from "lucide-react";
+import {
+  BookOpen,
+  CircleHelp,
+  CreditCard,
+  LayoutGrid,
+  LifeBuoy,
+  RefreshCw,
+} from "lucide-react";
 import { DISCORD_URL } from "@/lib/discord";
 
 function DiscordIcon({ className }: { className?: string }) {
@@ -17,9 +24,17 @@ function DiscordIcon({ className }: { className?: string }) {
 
 const footerLinks = [
   { href: "/features/", label: "Features", icon: LayoutGrid },
+  { href: "/pricing/", label: "Pricing", icon: CreditCard },
   { href: "/faq/", label: "FAQ", icon: CircleHelp },
   { href: "/blog/", label: "Blog", icon: BookOpen },
+  { href: "/updates/", label: "Updates", icon: RefreshCw },
   { href: "/support/", label: "Support", icon: LifeBuoy },
+];
+
+const legalLinks = [
+  { href: "/privacy-policy/", label: "Privacy" },
+  { href: "/terms/", label: "Terms" },
+  { href: "/refund-policy/", label: "Refunds" },
 ];
 
 export function SiteFooter() {
@@ -50,11 +65,22 @@ export function SiteFooter() {
             Discord
           </a>
         </div>
+        <div className="mt-4 flex flex-wrap gap-4 text-xs uppercase tracking-[0.12em]">
+          {legalLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-[#a89ab8] transition hover:text-[#bf5aff]"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} DayZ Cheats · dayzcheat.net</p>
           <p className="max-w-xl text-xs leading-relaxed">
-            Not affiliated with Bohemia Interactive or DayZ. Third-party software
-            use may violate game terms of service.
+            Not affiliated with Bohemia Interactive or DayZ. Third-party DayZ
+            cheats including ESP and aimbot may violate game terms of service.
           </p>
         </div>
       </div>

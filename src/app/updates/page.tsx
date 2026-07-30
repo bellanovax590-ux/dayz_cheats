@@ -3,32 +3,99 @@ import Link from "next/link";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { createPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Updates",
+  title: "DayZ Cheats Updates – BattlEye Status & Patch Notes",
   description:
-    "DayZ Cheats product updates, maintenance notes, and BattlEye status guidance.",
+    "DayZ cheats update status, BattlEye patch guidance, and maintenance notes. Check before you launch ESP or aimbot on dayzcheat.net.",
   path: "/updates/",
+  keywords: [
+    "DayZ cheats updates",
+    "BattlEye status",
+    "DayZ patch cheat status",
+    "dayz cheat maintenance",
+  ],
 });
 
 export default function UpdatesPage() {
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "DayZ Cheats Updates", path: "/updates/" },
+            ]),
+          ),
+        }}
+      />
       <PageHero
         eyebrow="Updates"
-        title="Product updates"
-        description="Changelogs and maintenance notes will appear here after DayZ patches and product releases."
+        title="DayZ cheats updates & status"
+        description="Check loader status after DayZ patches and BattlEye maintenance before you enable ESP, aimbot, or radar."
         icon={RefreshCw}
       />
       <section className="px-4 py-14 sm:px-8">
-        <div className="mx-auto max-w-3xl">
-          <p className="border border-white/10 bg-[rgba(18,10,32,0.85)] p-5 text-sm text-[#c8bfd8]">
-            No public changelog entries are listed yet. Check back after the next
-            maintenance window.
+        <div className="mx-auto max-w-3xl space-y-6 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+          <div className="border border-[#bf5aff]/30 bg-[#bf5aff]/5 p-5">
+            <p className="font-bold uppercase tracking-wide text-white">
+              Current status: Operational
+            </p>
+            <p className="mt-2">
+              dayzcheat.net lists DayZ cheat access as operational. Always
+              verify loader version against the latest game build before
+              injecting — especially on patch day.
+            </p>
+          </div>
+
+          <section>
+            <h2 className="text-lg font-bold uppercase tracking-wide text-white">
+              After every DayZ patch
+            </h2>
+            <p className="mt-3">
+              Steam updates can break ESP, aimbot, or radar overlays until the
+              cheat build is re-tested. Read our{" "}
+              <Link href="/blog/battleye-updates-what-to-check/" className="text-[#bf5aff] underline">
+                BattlEye updates checklist
+              </Link>{" "}
+              and confirm status here before launching on your main account.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-lg font-bold uppercase tracking-wide text-white">
+              Related guides
+            </h2>
+            <ul className="mt-3 space-y-2">
+              <li>
+                <Link href="/blog/dayz-esp-setup-basics/" className="text-[#bf5aff] underline">
+                  DayZ ESP setup basics
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/how-to-buy-dayz-cheats/" className="text-[#bf5aff] underline">
+                  How to buy DayZ cheats safely
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq/" className="text-[#bf5aff] underline">
+                  FAQ — HWID, refunds, and ban policy
+                </Link>
+              </li>
+            </ul>
+          </section>
+
+          <p className="border border-white/10 bg-[rgba(18,10,32,0.85)] p-5 text-xs text-[#a89ab8]">
+            Detailed public changelogs will be posted on this page as they are
+            released. Join Discord from the homepage for faster update notices.
           </p>
+
           <Link
             href="/"
-            className="mt-6 inline-flex items-center gap-2 text-sm text-[#bf5aff]"
+            className="inline-flex items-center gap-2 text-sm text-[#bf5aff]"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />
             Back to home

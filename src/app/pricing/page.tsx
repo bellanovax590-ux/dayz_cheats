@@ -4,22 +4,46 @@ import { CreditCard, ShieldAlert } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { PricingPlans } from "@/components/shared/PricingPlans";
 import { createPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, pricingProductSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Pricing – DayZ Cheats Access Plans",
+  title: "DayZ Cheats Pricing – ESP & Aimbot Access Plans",
   description:
-    "Compare DayZ Cheats access periods: 1 Day, 1 Week, and 1 Month. Checkout opens on the external purchase page.",
+    "Compare DayZ cheats pricing: 1 Day, 1 Week, and 1 Month access for ESP, aimbot, and radar. Secure checkout on dayzcheat.net.",
   path: "/pricing/",
-  keywords: ["DayZ cheats pricing", "DayZ ESP buy", "DayZ aimbot access"],
+  keywords: [
+    "dayz cheats price",
+    "DayZ cheats pricing",
+    "buy DayZ ESP",
+    "DayZ aimbot buy",
+    "dayz cheat cost",
+  ],
 });
 
 export default function PricingPage() {
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(pricingProductSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "DayZ Cheats Pricing", path: "/pricing/" },
+            ]),
+          ),
+        }}
+      />
       <PageHero
         eyebrow="Pricing"
-        title="Choose your access period"
-        description="Three clear durations for DayZ Cheats. Final prices and payment details appear on checkout. Using third-party game tools can violate game terms."
+        title="DayZ cheats pricing & access plans"
+        description="Three clear durations for DayZ Cheats ESP, aimbot, and radar. Final prices appear on checkout. Third-party tools may violate game terms."
         icon={CreditCard}
       />
       <section className="px-4 py-14 sm:px-8">
@@ -34,12 +58,16 @@ export default function PricingPage() {
               Review the{" "}
               <Link href="/refund-policy/" className="underline">
                 refund policy
-              </Link>{" "}
-              and{" "}
+              </Link>
+              ,{" "}
+              <Link href="/faq/" className="underline">
+                FAQ
+              </Link>
+              , and{" "}
               <Link href="/terms/" className="underline">
                 terms
               </Link>{" "}
-              before purchasing.
+              before purchasing DayZ cheats.
             </p>
           </div>
         </div>

@@ -19,6 +19,10 @@ export function createPageMetadata(options: {
     keywords: options.keywords,
     alternates: {
       canonical: options.path,
+      languages: {
+        "en-US": `${SITE_URL}${options.path}`,
+        "x-default": `${SITE_URL}${options.path}`,
+      },
       types: {
         "application/rss+xml": `${SITE_URL}/feed.xml`,
       },

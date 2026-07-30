@@ -51,9 +51,6 @@ export function enhanceBlogSeo(post: BlogPost) {
   if (!includesTerm(metaTitle, leadTerm)) {
     metaTitle = `${leadTerm} – ${metaTitle}`;
   }
-  if (!includesTerm(metaTitle, "DayZ cheats") && !includesTerm(metaTitle, "DayZ cheat")) {
-    metaTitle = `${metaTitle} | DayZ Cheats`;
-  }
 
   let metaDescription = post.metaDescription.trim();
   if (!includesTerm(metaDescription, leadTerm)) {
@@ -69,6 +66,7 @@ export function enhanceBlogSeo(post: BlogPost) {
     "dayz cheat",
     "dayz cheats esp",
     "dayz cheats aimbot",
+    "dayz hack",
     ...post.keywords,
   ].filter((value, index, list) => {
     const key = value.toLowerCase();

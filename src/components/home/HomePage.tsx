@@ -292,6 +292,18 @@ function HeroBlock() {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
+              href="/features/"
+              className="inline-flex items-center gap-2 border border-[#bf5aff]/40 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#bf5aff] transition hover:bg-[#bf5aff]/10"
+            >
+              DayZ cheat features
+            </Link>
+            <Link
+              href="/pricing/"
+              className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:border-[#bf5aff]/50"
+            >
+              Pricing
+            </Link>
+            <Link
               href="/blog/"
               className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:border-[#bf5aff]/50"
             >

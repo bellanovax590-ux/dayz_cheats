@@ -4,26 +4,29 @@ import { SITE_URL } from "@/lib/site-url";
 
 export const dynamic = "force-static";
 
+const buildDate = new Date();
+
 const staticPages: Array<{
   path: string;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }> = [
-  { path: "/", changeFrequency: "weekly", priority: 1 },
-  { path: "/features/", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/pricing/", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/blog/", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/faq/", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/support/", changeFrequency: "monthly", priority: 0.75 },
-  { path: "/updates/", changeFrequency: "weekly", priority: 0.75 },
-  { path: "/privacy-policy/", changeFrequency: "yearly", priority: 0.3 },
-  { path: "/refund-policy/", changeFrequency: "yearly", priority: 0.3 },
-  { path: "/terms/", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/", changeFrequency: "daily", priority: 1 },
+  { path: "/features/", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/pricing/", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/blog/", changeFrequency: "daily", priority: 0.95 },
+  { path: "/faq/", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/support/", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/updates/", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/privacy-policy/", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/refund-policy/", changeFrequency: "yearly", priority: 0.4 },
+  { path: "/terms/", changeFrequency: "yearly", priority: 0.4 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = staticPages.map((page) => ({
     url: `${SITE_URL}${page.path}`,
+    lastModified: buildDate,
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));
