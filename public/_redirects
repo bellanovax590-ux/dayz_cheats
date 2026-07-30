@@ -1,4 +1,6 @@
-# Canonical domain (SEO — no UI change)
+# HTTPS + canonical non-www domain
+http://dayzcheat.net/* https://dayzcheat.net/:splat 301
+http://www.dayzcheat.net/* https://dayzcheat.net/:splat 301
 https://www.dayzcheat.net/* https://dayzcheat.net/:splat 301
 
 # Trailing slashes for Google canonical URLs

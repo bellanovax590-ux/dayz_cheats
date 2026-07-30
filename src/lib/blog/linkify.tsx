@@ -5,21 +5,23 @@ const INTERNAL_PATH =
   /(\/(?:blog\/[a-z0-9-]+\/|features\/|pricing\/|faq\/|support\/|updates\/|blog\/|privacy-policy\/|refund-policy\/|terms\/))/gi;
 
 const PATH_LABELS: Record<string, string> = {
-  "/features/": "DayZ cheat features",
-  "/pricing/": "DayZ cheats pricing",
-  "/faq/": "DayZ cheats FAQ",
-  "/support/": "DayZ cheats support",
-  "/updates/": "DayZ cheat updates",
-  "/blog/": "DayZ cheats blog",
-  "/privacy-policy/": "privacy policy",
-  "/refund-policy/": "refund policy",
-  "/terms/": "terms of service",
+  "/features/": "Features",
+  "/pricing/": "Pricing",
+  "/faq/": "FAQ",
+  "/support/": "Support",
+  "/updates/": "Updates",
+  "/blog/": "Blog",
+  "/privacy-policy/": "Privacy",
+  "/refund-policy/": "Refunds",
+  "/terms/": "Terms",
 };
 
 function labelForPath(path: string) {
   if (PATH_LABELS[path]) return PATH_LABELS[path];
   if (path.startsWith("/blog/")) {
-    return path.replace(/^\/blog\/|\/$/g, "").replace(/-/g, " ");
+    const slug = path.replace(/^\/blog\/|\/$/g, "");
+    const words = slug.replace(/-/g, " ");
+    return words.length > 40 ? `${words.slice(0, 37)}…` : words;
   }
   return path;
 }

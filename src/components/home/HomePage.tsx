@@ -216,8 +216,12 @@ function HeroBlock() {
             id="hero-heading"
             className="glow-text mt-6 text-3xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
-            DayZ
+            DayZ{" "}
             <span className="block text-[#bf5aff]">Cheats</span>
+            <span className="sr-only">
+              {" "}
+              – ESP, Aimbot and Radar for DayZ Survival
+            </span>
           </h1>
 
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-[#c8bfd8] sm:text-base">

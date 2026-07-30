@@ -3,6 +3,7 @@ import { Exo_2, IBM_Plex_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { DISCORD_URL } from "@/lib/discord";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
@@ -31,6 +32,7 @@ export const metadata: Metadata = {
   description:
     "Explore DayZ Cheats featuring ESP and Aimbot. View features, pricing plans, blog guides, updates, and support information on dayzcheat.net.",
   alternates: {
+    canonical: "/",
     types: {
       "application/rss+xml": `${SITE_URL}/feed.xml`,
     },
@@ -96,6 +98,7 @@ const organizationSchema = {
     height: 512,
   },
   image: `${SITE_URL}/images/zadeyo-logo-512.png`,
+  sameAs: [DISCORD_URL, `${SITE_URL}/blog/`],
 };
 
 const themeBootstrapScript = `(function(){try{var t=localStorage.getItem("dayz-theme");if(t==="light"||t==="dark"){document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}else{document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}}catch(e){document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}})();`;
