@@ -70,7 +70,12 @@ const websiteSchema = {
   publisher: {
     "@type": "Organization",
     name: "DayZ Cheats",
-    logo: `${SITE_URL}/images/zadeyo-logo.webp`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${SITE_URL}/images/zadeyo-logo-512.png`,
+      width: 512,
+      height: 512,
+    },
   },
   potentialAction: {
     "@type": "SearchAction",

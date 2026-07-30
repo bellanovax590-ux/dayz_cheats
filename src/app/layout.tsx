@@ -23,6 +23,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  applicationName: "DayZ Cheats",
   title: {
     default: "DayZ Cheats – ESP & Aimbot | DayZ",
     template: "%s | DayZ Cheats",
@@ -34,10 +35,17 @@ export const metadata: Metadata = {
       "application/rss+xml": `${SITE_URL}/feed.xml`,
     },
   },
+  manifest: "/site.webmanifest",
   icons: {
-    icon: [{ url: "/images/zadeyo-logo.webp", type: "image/webp" }],
-    apple: [{ url: "/images/zadeyo-logo.webp", type: "image/webp" }],
-    shortcut: ["/images/zadeyo-logo.webp"],
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
   },
   robots: {
     index: true,
@@ -79,8 +87,15 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "DayZ Cheats",
+  alternateName: ["dayzcheat.net", "Zadeyo DayZ Cheats"],
   url: SITE_URL,
-  logo: `${SITE_URL}/images/zadeyo-logo.webp`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${SITE_URL}/images/zadeyo-logo-512.png`,
+    width: 512,
+    height: 512,
+  },
+  image: `${SITE_URL}/images/zadeyo-logo-512.png`,
 };
 
 const themeBootstrapScript = `(function(){try{var t=localStorage.getItem("dayz-theme");if(t==="light"||t==="dark"){document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}else{document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}}catch(e){document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}})();`;

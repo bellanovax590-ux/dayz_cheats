@@ -14,6 +14,7 @@ import { BlogBreadcrumbs } from "@/components/blog/BlogBreadcrumbs";
 import { BlogGetCheatsCta } from "@/components/blog/BlogGetCheatsCta";
 import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { blogPosts } from "@/lib/blog/index";
+import { blogSearchTags } from "@/lib/blog/keyword-seo";
 import { getRelatedPosts } from "@/lib/blog/related";
 import {
   blogBreadcrumbSchema,
@@ -46,6 +47,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   if (!post) notFound();
 
   const related = getRelatedPosts(post, blogPosts);
+  const searchTags = blogSearchTags(post);
 
   return (
     <main className="flex-1 pb-24">
@@ -90,6 +92,14 @@ export default async function BlogPostPage({ params }: PageProps) {
               <Tag className="h-3 w-3" aria-hidden />
               {post.category}
             </span>
+            {searchTags.map((term) => (
+              <span
+                key={term}
+                className="inline-flex items-center rounded-sm border border-[#bf5aff]/25 bg-[#bf5aff]/10 px-2 py-0.5 text-[10px] text-[#d8b4fe]"
+              >
+                {term}
+              </span>
+            ))}
             <span className="inline-flex items-center gap-1">
               <CalendarDays className="h-3 w-3" aria-hidden />
               {post.date}

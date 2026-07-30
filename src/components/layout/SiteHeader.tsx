@@ -89,8 +89,8 @@ export function SiteHeader() {
           <Link href="/" className="flex min-w-0 shrink-0 items-center gap-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/zadeyo-logo.webp"
-              alt="DayZ Cheats logo"
+              src="/icon-48.png"
+              alt="Zadeyo DayZ Cheats logo"
               width={32}
               height={32}
               className="h-8 w-8 shrink-0 rounded-sm object-contain"

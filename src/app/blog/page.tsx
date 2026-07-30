@@ -10,6 +10,7 @@ import {
 import { PageHero } from "@/components/layout/PageHero";
 import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { blogPosts } from "@/lib/blog/index";
+import { enhanceBlogSeo } from "@/lib/blog/keyword-seo";
 import { blogIndexOgImage, blogCollectionSchema } from "@/lib/blog/seo";
 import { createPageMetadata } from "@/lib/seo";
 import { CHECKOUT_URL } from "@/lib/checkout";
@@ -26,7 +27,7 @@ const blogListSchema = {
     "@type": "ListItem",
     position: index + 1,
     url: `${SITE_URL}/blog/${post.slug}/`,
-    name: post.title,
+    name: enhanceBlogSeo(post).schemaHeadline,
   })),
 };
 

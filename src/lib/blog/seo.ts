@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
 import type { BlogPost } from "@/lib/blog/types";
+import { enhanceBlogSeo } from "@/lib/blog/keyword-seo";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
 import { webpSrc } from "@/lib/images";
 
 export function blogPostMetadata(post: BlogPost): Metadata {
+  const seo = enhanceBlogSeo(post);
   const url = `${SITE_URL}/blog/${post.slug}/`;
   const imageUrl = post.coverImage.startsWith("http")
     ? post.coverImage
     : `${SITE_URL}${webpSrc(post.coverImage)}`;
 
   return {
-    title: post.metaTitle,
-    description: post.metaDescription,
-    keywords: post.keywords,
+    title: seo.metaTitle,
+    description: seo.metaDescription,
+    keywords: seo.keywords,
     alternates: {
       canonical: `/blog/${post.slug}/`,
       types: {
@@ -22,27 +24,28 @@ export function blogPostMetadata(post: BlogPost): Metadata {
     },
     openGraph: {
       type: "article",
-      title: post.metaTitle,
-      description: post.metaDescription,
+      title: seo.metaTitle,
+      description: seo.metaDescription,
       url,
       siteName: "DayZ Cheats",
       locale: "en_US",
       publishedTime: post.date,
       modifiedTime: post.date,
       section: post.category,
-      tags: post.keywords,
+      tags: seo.keywords,
       images: [{ url: imageUrl, width: 1200, height: 630, alt: post.coverAlt }],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.metaTitle,
-      description: post.metaDescription,
+      title: seo.metaTitle,
+      description: seo.metaDescription,
       images: [imageUrl],
     },
   };
 }
 
 export function blogPostingSchema(post: BlogPost) {
+  const seo = enhanceBlogSeo(post);
   const url = `${SITE_URL}/blog/${post.slug}/`;
   const imageUrl = post.coverImage.startsWith("http")
     ? post.coverImage
@@ -51,8 +54,8 @@ export function blogPostingSchema(post: BlogPost) {
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    headline: post.title,
-    description: post.metaDescription,
+    headline: seo.schemaHeadline,
+    description: seo.metaDescription,
     image: imageUrl,
     datePublished: post.date,
     dateModified: post.date,
@@ -67,14 +70,21 @@ export function blogPostingSchema(post: BlogPost) {
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/zadeyo-logo.webp`,
+        url: `${SITE_URL}/images/zadeyo-logo-512.png`,
+        width: 512,
+        height: 512,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": url,
     },
-    keywords: post.keywords.join(", "),
+    keywords: seo.keywords.join(", "),
+    articleSection: post.category,
+    about: seo.primaryTerms.map((term) => ({
+      "@type": "Thing",
+      name: term,
+    })),
   };
 }
 
