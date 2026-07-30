@@ -1,0 +1,13 @@
+# Canonical domain (SEO — no UI change)
+https://www.dayzcheat.net/* https://dayzcheat.net/:splat 301
+
+# Trailing slashes for Google canonical URLs
+/features /features/ 301
+/pricing /pricing/ 301
+/faq /faq/ 301
+/blog /blog/ 301
+/support /support/ 301
+/updates /updates/ 301
+/privacy-policy /privacy-policy/ 301
+/refund-policy /refund-policy/ 301
+/terms /terms/ 301

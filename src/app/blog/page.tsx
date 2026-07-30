@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { BlogPostGrid } from "@/components/blog/BlogPostGrid";
 import { PageHero } from "@/components/layout/PageHero";

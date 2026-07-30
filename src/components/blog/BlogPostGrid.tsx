@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   ArrowRight,
   CalendarDays,
@@ -28,13 +28,10 @@ type BlogPostGridProps = {
 };
 
 export function BlogPostGrid({ posts }: BlogPostGridProps) {
-  const [query, setQuery] = useState("");
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const initial = params.get("q");
-    if (initial) setQuery(initial);
-  }, []);
+  const [query, setQuery] = useState(() => {
+    if (typeof window === "undefined") return "";
+    return new URLSearchParams(window.location.search).get("q") ?? "";
+  });
 
   const filtered = useMemo(() => {
     const term = query.trim().toLowerCase();
