@@ -12,7 +12,7 @@ const staticPages: Array<{
   { path: "/", changeFrequency: "weekly", priority: 1 },
   { path: "/features/", changeFrequency: "monthly", priority: 0.9 },
   { path: "/pricing/", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/blog/", changeFrequency: "weekly", priority: 0.85 },
+  { path: "/blog/", changeFrequency: "weekly", priority: 0.9 },
   { path: "/faq/", changeFrequency: "monthly", priority: 0.8 },
   { path: "/support/", changeFrequency: "monthly", priority: 0.75 },
   { path: "/updates/", changeFrequency: "weekly", priority: 0.75 },
@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE_URL}/blog/${post.slug}/`,
     lastModified: new Date(post.date),
     changeFrequency: "monthly",
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   return [...staticRoutes, ...blogRoutes];

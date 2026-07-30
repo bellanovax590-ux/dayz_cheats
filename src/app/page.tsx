@@ -13,13 +13,16 @@ preload("/images/dayz-character-cutout.webp", {
 export const metadata: Metadata = createPageMetadata({
   title: "DayZ Cheats – ESP & Aimbot | DayZ",
   description:
-    "DayZ Cheats with Player ESP, Loot ESP, Aimbot, and 2D radar. Compare features, pricing, FAQ, and guides on dayzcheat.net.",
+    "DayZ Cheats with Player ESP, Loot ESP, Aimbot, and 2D radar. Compare features, pricing, FAQ, and searchable blog guides on dayzcheat.net.",
   path: "/",
   keywords: [
+    "dayz cheat",
     "DayZ cheats",
+    "DayZ cheat ESP",
     "DayZ ESP",
     "DayZ aimbot",
     "DayZ radar",
+    "dayz hack",
     "dayzcheat.net",
   ],
 });
@@ -63,10 +66,19 @@ const websiteSchema = {
   url: SITE_URL,
   description:
     "Official DayZ Cheats site for ESP, Aimbot, pricing, FAQ, blog guides, and support.",
+  inLanguage: "en-US",
   publisher: {
     "@type": "Organization",
     name: "DayZ Cheats",
     logo: `${SITE_URL}/images/zadeyo-logo.webp`,
+  },
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_URL}/blog/?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
   },
 };
 

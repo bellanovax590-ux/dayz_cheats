@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  BookOpen,
   Crosshair,
   Eye,
   Shield,
@@ -9,8 +10,9 @@ import {
 } from "lucide-react";
 import { FeatureStrandCards } from "@/components/shared/FeatureStrandCards";
 import { BlindsCarousel } from "@/components/home/BlindsCarousel";
-import { DISCORD_SERVER_ID, DISCORD_URL } from "@/lib/discord";
 import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
+import { blogPosts } from "@/lib/blog";
+import { DISCORD_SERVER_ID, DISCORD_URL } from "@/lib/discord";
 import { CHECKOUT_URL } from "@/lib/checkout";
 
 const cheatSlides = [
@@ -93,6 +95,7 @@ export function HomePage() {
       <HeroBlock />
       <FeaturesBlock />
       <PreviewBlock />
+      <BlogGuidesBlock />
 
       <section
         className="border-b border-white/10 px-4 py-16 sm:px-8"
@@ -166,6 +169,69 @@ export function HomePage() {
   );
 }
 
+function BlogGuidesBlock() {
+  const featuredGuides = [...blogPosts]
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .slice(0, 6);
+
+  return (
+    <section
+      className="border-b border-white/10 px-4 py-16 sm:px-8"
+      aria-labelledby="blog-guides-heading"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#bf5aff]">
+              <BookOpen className="h-3.5 w-3.5" aria-hidden />
+              Blog
+            </p>
+            <h2
+              id="blog-guides-heading"
+              className="mt-2 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl"
+            >
+              DayZ cheat guides for Google search
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+              Searchable long-form articles on DayZ ESP, aimbot, loot filters,
+              radar, BattlEye updates, and buying. Each guide includes a Get
+              DayZ Cheats link so readers can move from tips to checkout.
+            </p>
+          </div>
+          <Link
+            href="/blog/"
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-[#bf5aff]"
+          >
+            View all guides
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+          </Link>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {featuredGuides.map((post) => (
+            <article
+              key={post.slug}
+              className="group border border-white/10 transition hover:border-[#bf5aff]/45"
+            >
+              <Link href={`/blog/${post.slug}/`} className="block p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#bf5aff]">
+                  {post.category}
+                </p>
+                <h3 className="mt-2 text-lg font-bold text-white transition group-hover:text-[#bf5aff]">
+                  {post.title}
+                </h3>
+                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-[#c8bfd8]">
+                  {post.excerpt}
+                </p>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function HeroBlock() {
   return (
     <section
@@ -225,6 +291,12 @@ function HeroBlock() {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
+            <Link
+              href="/blog/"
+              className="inline-flex items-center gap-2 border border-white/20 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:border-[#bf5aff]/50"
+            >
+              DayZ cheat guides
+            </Link>
             <a
               href={CHECKOUT_URL}
               target="_blank"

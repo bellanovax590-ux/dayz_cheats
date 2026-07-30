@@ -28,7 +28,12 @@ export const metadata: Metadata = {
     template: "%s | DayZ Cheats",
   },
   description:
-    "Explore DayZ Cheats featuring ESP and Aimbot. View features, pricing plans, updates, and support information on dayzcheat.net.",
+    "Explore DayZ Cheats featuring ESP and Aimbot. View features, pricing plans, blog guides, updates, and support information on dayzcheat.net.",
+  alternates: {
+    types: {
+      "application/rss+xml": `${SITE_URL}/feed.xml`,
+    },
+  },
   icons: {
     icon: [{ url: "/images/zadeyo-logo.webp", type: "image/webp" }],
     apple: [{ url: "/images/zadeyo-logo.webp", type: "image/webp" }],

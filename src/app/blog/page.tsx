@@ -10,8 +10,9 @@ import {
 import { PageHero } from "@/components/layout/PageHero";
 import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { blogPosts } from "@/lib/blog/index";
-import { blogIndexOgImage } from "@/lib/blog/seo";
+import { blogIndexOgImage, blogCollectionSchema } from "@/lib/blog/seo";
 import { createPageMetadata } from "@/lib/seo";
+import { CHECKOUT_URL } from "@/lib/checkout";
 import { SITE_URL } from "@/lib/site-url";
 
 const blogListSchema = {
@@ -32,13 +33,16 @@ const blogListSchema = {
 export const metadata = createPageMetadata({
   title: "DayZ Cheats Blog – ESP, Aimbot & BattlEye Guides",
   description:
-    "Long-form DayZ cheats guides on ESP setup, aimbot FOV, loot filters, radar, BattlEye checks, and buying tips. Plain English SEO articles from dayzcheat.net.",
+    "Searchable DayZ cheat guides on ESP setup, aimbot FOV, loot filters, radar, BattlEye checks, and buying tips. Long-form SEO articles from dayzcheat.net.",
   path: "/blog/",
   keywords: [
+    "dayz cheat",
     "DayZ cheats",
+    "DayZ cheat guide",
     "DayZ ESP",
     "DayZ aimbot",
     "DayZ loot ESP",
+    "DayZ hack guide",
     "BattlEye",
     "dayzcheat.net",
   ],
@@ -56,12 +60,36 @@ export default function BlogPage() {
           __html: JSON.stringify(blogListSchema),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogCollectionSchema(blogPosts.length)),
+        }}
+      />
       <PageHero
         eyebrow="Blog"
-        title="DayZ cheats guides & tips"
-        description="Long, easy-to-read articles on DayZ ESP, aimbot settings, loot filters, radar, BattlEye habits, and buying — built to help dayzcheat.net rank for real player searches."
+        title="DayZ cheat guides & tips"
+        description="Long, searchable articles on DayZ ESP, aimbot settings, loot filters, radar, BattlEye habits, and buying — built to rank for real player searches like dayz cheat, dayz esp, and dayz aimbot."
         icon={BookOpen}
       />
+      <section className="border-b border-white/10 px-4 py-6 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 border border-[#bf5aff]/30 bg-[#bf5aff]/5 p-5">
+          <p className="max-w-2xl text-sm leading-relaxed text-[#c8bfd8]">
+            Every guide links to live DayZ cheat features, pricing, and secure
+            checkout. Start with ESP setup or jump straight to access when you
+            are ready.
+          </p>
+          <a
+            href={CHECKOUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#bf5aff] px-5 py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#14081f] transition hover:bg-[#d946ef]"
+          >
+            Get DayZ Cheats
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+          </a>
+        </div>
+      </section>
       <section className="px-4 py-14 sm:px-8">
         <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (

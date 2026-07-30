@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
+import { linkifyParagraph } from "@/lib/blog/linkify";
 import type { BlogBlock } from "@/lib/blog/types";
 
 type BlogArticleBodyProps = {
@@ -31,7 +32,7 @@ export function BlogArticleBody({ blocks }: BlogArticleBodyProps) {
         if (block.type === "p") {
           return (
             <p key={`p-${index}`} className={delayClass}>
-              {block.text}
+              {linkifyParagraph(block.text)}
             </p>
           );
         }

@@ -10,9 +10,16 @@ import {
   Tag,
 } from "lucide-react";
 import { BlogArticleBody } from "@/components/blog/BlogArticleBody";
+import { BlogBreadcrumbs } from "@/components/blog/BlogBreadcrumbs";
+import { BlogGetCheatsCta } from "@/components/blog/BlogGetCheatsCta";
 import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { blogPosts } from "@/lib/blog/index";
-import { blogPostMetadata, blogPostingSchema } from "@/lib/blog/seo";
+import { getRelatedPosts } from "@/lib/blog/related";
+import {
+  blogBreadcrumbSchema,
+  blogPostMetadata,
+  blogPostingSchema,
+} from "@/lib/blog/seo";
 import { CHECKOUT_URL } from "@/lib/checkout";
 
 type PageProps = {
@@ -38,17 +45,20 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = blogPosts.find((item) => item.slug === slug);
   if (!post) notFound();
 
-  const related = blogPosts
-    .filter((item) => item.slug !== post.slug)
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
-    .slice(0, 3);
+  const related = getRelatedPosts(post, blogPosts);
 
   return (
-    <main className="flex-1">
+    <main className="flex-1 pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(blogPostingSchema(post)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogBreadcrumbSchema(post)),
         }}
       />
       <article className="border-b border-white/10 px-4 py-14 sm:px-8">
@@ -60,6 +70,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <ArrowLeft className="h-3.5 w-3.5" aria-hidden />
             Back to blog
           </Link>
+          <BlogBreadcrumbs postTitle={post.title} />
 
           <div className="blog-fade-item blog-fade-delay-1 relative mt-6 overflow-hidden border border-white/10">
             <OptimizedPicture
@@ -95,6 +106,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           <p className="blog-fade-item blog-fade-delay-4 mt-4 text-base font-medium text-[#c8bfd8]">
             {post.excerpt}
           </p>
+
+          <BlogGetCheatsCta />
 
           <BlogArticleBody blocks={post.content} />
 
@@ -158,6 +171,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      <BlogGetCheatsCta variant="sticky" />
     </main>
   );
 }

@@ -17,7 +17,12 @@ export function createPageMetadata(options: {
     title: pageTitle,
     description: options.description,
     keywords: options.keywords,
-    alternates: { canonical: options.path },
+    alternates: {
+      canonical: options.path,
+      types: {
+        "application/rss+xml": `${SITE_URL}/feed.xml`,
+      },
+    },
     openGraph: {
       title: pageTitle,
       description: options.description,
