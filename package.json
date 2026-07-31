@@ -11,8 +11,8 @@
     "postbuild": "node scripts/verify-build-output.mjs",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "wrangler deploy --assets=./out",
-    "deploy:ci": "wrangler deploy --assets=./out",
+    "deploy": "node scripts/ci-deploy.mjs",
+    "deploy:ci": "node scripts/ci-deploy.mjs",
     "deploy:pages": "wrangler pages deploy out --project-name=dayz-cheats",
     "preview": "npm run build && npx --yes serve out -l 3000",
     "optimize-images": "node scripts/optimize-images.mjs"
