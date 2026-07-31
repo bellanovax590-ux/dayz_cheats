@@ -1,9 +1,5 @@
-# HTTPS + canonical non-www domain
-http://dayzcheat.net/* https://dayzcheat.net/:splat 301
-http://www.dayzcheat.net/* https://dayzcheat.net/:splat 301
-https://www.dayzcheat.net/* https://dayzcheat.net/:splat 301
-
-# Trailing slashes for Google canonical URLs
+# Trailing slashes for canonical URLs (Workers _redirects: relative paths only)
+# Configure www + HTTPS redirects in Cloudflare dashboard (Redirect Rules).
 /features /features/ 301
 /pricing /pricing/ 301
 /faq /faq/ 301

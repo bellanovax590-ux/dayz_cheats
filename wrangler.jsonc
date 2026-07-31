@@ -2,7 +2,9 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "dayz-cheats",
   "compatibility_date": "2026-07-29",
+  "main": "./scripts/cloudflare-worker.mjs",
   "assets": {
-    "directory": "./out"
+    "directory": "./out",
+    "binding": "ASSETS"
   }
 }
