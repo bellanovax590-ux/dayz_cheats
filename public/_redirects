@@ -1,5 +1,5 @@
 # Trailing slashes for canonical URLs (Workers _redirects: relative paths only)
-# Configure www + HTTPS redirects in Cloudflare dashboard (Redirect Rules).
+# www -> non-www and HTTP -> HTTPS are handled in worker.js
 /features /features/ 301
 /pricing /pricing/ 301
 /faq /faq/ 301

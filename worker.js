@@ -1,3 +1,5 @@
+const CANONICAL_HOST = "dayzcheat.net";
+
 const MIME_TYPES = {
   ".css": "text/css; charset=utf-8",
   ".js": "application/javascript; charset=utf-8",
@@ -37,8 +39,30 @@ function contentTypeForPath(pathname) {
   return MIME_TYPES[lower.slice(dot)] ?? null;
 }
 
+function canonicalRedirect(request) {
+  const url = new URL(request.url);
+
+  if (url.hostname === `www.${CANONICAL_HOST}`) {
+    url.hostname = CANONICAL_HOST;
+    url.protocol = "https:";
+    return Response.redirect(url.toString(), 301);
+  }
+
+  if (url.protocol === "http:" && url.hostname === CANONICAL_HOST) {
+    url.protocol = "https:";
+    return Response.redirect(url.toString(), 301);
+  }
+
+  return null;
+}
+
 const worker = {
   async fetch(request, env) {
+    const redirect = canonicalRedirect(request);
+    if (redirect) {
+      return redirect;
+    }
+
     const response = await env.ASSETS.fetch(request);
     const contentType = contentTypeForPath(new URL(request.url).pathname);
 
