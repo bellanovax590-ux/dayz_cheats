@@ -11,6 +11,8 @@
     "start": "next start",
     "lint": "eslint",
     "deploy": "npm run build && wrangler pages deploy out --project-name=dayz-cheats",
+    "deploy:assets": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy out --project-name=dayz-cheats",
     "preview": "npm run build && npx --yes serve out -l 3000",
     "optimize-images": "node scripts/optimize-images.mjs"
   },

@@ -2,3 +2,7 @@
 name = "dayz-cheats"
 compatibility_date = "2026-07-29"
 pages_build_output_dir = "out"
+
+# Required when Cloudflare deploy command is: npx wrangler deploy
+[assets]
+directory = "./out"
