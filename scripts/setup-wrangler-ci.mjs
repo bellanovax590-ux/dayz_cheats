@@ -15,8 +15,7 @@ if (!existsSync(realWrangler)) {
   process.exit(0);
 }
 
-// Cloudflare Pages CI runs `npx wrangler deploy`, which fails on static sites.
-// Rewrite that to `wrangler pages deploy out --project-name=dayz-cheats`.
+// Cloudflare CI runs `npx wrangler deploy` — inject assets config explicitly.
 const wrapper = `#!/usr/bin/env node
 'use strict';
 const { spawnSync } = require('child_process');
@@ -25,8 +24,8 @@ const { join } = require('path');
 const realWrangler = join(__dirname, '..', 'wrangler', 'bin', 'wrangler.js');
 let args = process.argv.slice(2);
 
-if (args[0] === 'deploy' && !args.includes('pages')) {
-  args = ['pages', 'deploy', 'out', '--project-name=dayz-cheats'];
+if (args[0] === 'deploy' && !args.some((a) => a.startsWith('--assets'))) {
+  args.push('--config', 'wrangler.toml', '--assets', './out');
 }
 
 const result = spawnSync(process.execPath, [realWrangler, ...args], { stdio: 'inherit' });
@@ -35,4 +34,4 @@ process.exit(result.status ?? 1);
 
 writeFileSync(binPath, wrapper);
 chmodSync(binPath, 0o755);
-console.log("Configured wrangler CLI wrapper for Cloudflare Pages CI");
+console.log("Configured wrangler CLI wrapper for Cloudflare CI");
