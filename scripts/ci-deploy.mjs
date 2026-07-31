@@ -13,7 +13,7 @@ if (!existsSync(indexPath)) {
 
 console.log(`Deploying static export from ${outDir}`);
 
-execSync("wrangler deploy --config wrangler.toml --assets ./out", {
+execSync("wrangler pages deploy out --project-name=dayz-cheats", {
   stdio: "inherit",
   env: process.env,
 });

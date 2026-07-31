@@ -15,7 +15,8 @@
     "deploy:ci": "node scripts/ci-deploy.mjs",
     "deploy:pages": "wrangler pages deploy out --project-name=dayz-cheats",
     "preview": "npm run build && npx --yes serve out -l 3000",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "postinstall": "node scripts/setup-wrangler-ci.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.27.0",
