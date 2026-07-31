@@ -3,16 +3,15 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const realWrangler = join(root, "node_modules", "wrangler", "bin", "wrangler.js");
+const runWrangler = join(root, "scripts", "run-wrangler.mjs");
 const binPath = join(root, "node_modules", ".bin", "wrangler");
-const deployMarker = join(root, ".cf-deploy-done");
 
 if (process.platform !== "linux") {
   process.exit(0);
 }
 
-if (!existsSync(realWrangler)) {
-  console.log("wrangler not installed, skipping CI wrapper");
+if (!existsSync(runWrangler)) {
+  console.log("run-wrangler.mjs missing, skipping CI wrapper");
   process.exit(0);
 }
 
@@ -22,9 +21,9 @@ const { existsSync } = require('fs');
 const { spawnSync } = require('child_process');
 const { join } = require('path');
 
-const root = join(__dirname, '..');
-const realWrangler = join(root, 'wrangler', 'bin', 'wrangler.js');
+const root = process.cwd();
 const deployMarker = join(root, '.cf-deploy-done');
+const runWrangler = join(root, 'scripts', 'run-wrangler.mjs');
 let args = process.argv.slice(2);
 
 if (args[0] === 'deploy') {
@@ -38,7 +37,7 @@ if (args[0] === 'deploy') {
   }
 }
 
-const result = spawnSync(process.execPath, [realWrangler, ...args], {
+const result = spawnSync(process.execPath, [runWrangler, ...args], {
   stdio: 'inherit',
   cwd: root,
 });

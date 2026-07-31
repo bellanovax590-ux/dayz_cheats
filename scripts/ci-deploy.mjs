@@ -1,10 +1,12 @@
 import { existsSync, writeFileSync } from "node:fs";
 import { execSync } from "node:child_process";
-import path from "node:path";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const outDir = path.resolve("out");
-const indexPath = path.join(outDir, "index.html");
-const deployMarker = path.resolve(".cf-deploy-done");
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const outDir = join(root, "out");
+const indexPath = join(outDir, "index.html");
+const deployMarker = join(root, ".cf-deploy-done");
 
 if (!existsSync(indexPath)) {
   console.error(`Deploy blocked: missing ${indexPath}`);
@@ -14,8 +16,9 @@ if (!existsSync(indexPath)) {
 
 console.log(`Deploying static export from ${outDir}`);
 
-execSync("wrangler deploy --config wrangler.toml", {
+execSync("node scripts/run-wrangler.mjs deploy --config wrangler.toml", {
   stdio: "inherit",
+  cwd: root,
   env: process.env,
 });
 
