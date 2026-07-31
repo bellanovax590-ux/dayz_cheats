@@ -1,9 +1,10 @@
-import { existsSync } from "node:fs";
+import { existsSync, writeFileSync } from "node:fs";
 import { execSync } from "node:child_process";
 import path from "node:path";
 
 const outDir = path.resolve("out");
 const indexPath = path.join(outDir, "index.html");
+const deployMarker = path.resolve(".cf-deploy-done");
 
 if (!existsSync(indexPath)) {
   console.error(`Deploy blocked: missing ${indexPath}`);
@@ -17,3 +18,6 @@ execSync("wrangler deploy --config wrangler.toml --assets ./out", {
   stdio: "inherit",
   env: process.env,
 });
+
+writeFileSync(deployMarker, new Date().toISOString());
+console.log("Deploy completed successfully.");

@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const realWrangler = join(root, "node_modules", "wrangler", "bin", "wrangler.js");
 const binPath = join(root, "node_modules", ".bin", "wrangler");
+const deployMarker = join(root, ".cf-deploy-done");
 
 if (process.platform !== "linux") {
   process.exit(0);
@@ -15,20 +16,33 @@ if (!existsSync(realWrangler)) {
   process.exit(0);
 }
 
-// Cloudflare CI runs `npx wrangler deploy` — inject assets config explicitly.
 const wrapper = `#!/usr/bin/env node
 'use strict';
+const { existsSync } = require('fs');
 const { spawnSync } = require('child_process');
 const { join } = require('path');
 
-const realWrangler = join(__dirname, '..', 'wrangler', 'bin', 'wrangler.js');
+const root = join(__dirname, '..');
+const realWrangler = join(root, 'wrangler', 'bin', 'wrangler.js');
+const deployMarker = join(root, '.cf-deploy-done');
 let args = process.argv.slice(2);
 
-if (args[0] === 'deploy' && !args.some((a) => a.startsWith('--assets'))) {
-  args.push('--config', 'wrangler.toml', '--assets', './out');
+if (args[0] === 'deploy') {
+  if (existsSync(deployMarker)) {
+    console.log('Deploy already completed during build step.');
+    process.exit(0);
+  }
+
+  if (!args.some((arg) => arg.startsWith('--assets'))) {
+    args.push('--config', 'wrangler.toml', '--assets', './out');
+  }
 }
 
-const result = spawnSync(process.execPath, [realWrangler, ...args], { stdio: 'inherit' });
+const result = spawnSync(process.execPath, [realWrangler, ...args], {
+  stdio: 'inherit',
+  cwd: root,
+});
+
 process.exit(result.status ?? 1);
 `;
 
