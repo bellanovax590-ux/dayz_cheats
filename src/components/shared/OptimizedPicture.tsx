@@ -33,7 +33,6 @@ export function OptimizedPicture({
   return (
     <picture className={className}>
       <source srcSet={webp} type="image/webp" sizes={sizes} />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={fallback}
         alt={alt}

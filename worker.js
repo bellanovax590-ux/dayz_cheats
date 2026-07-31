@@ -37,7 +37,7 @@ function contentTypeForPath(pathname) {
   return MIME_TYPES[lower.slice(dot)] ?? null;
 }
 
-export default {
+const worker = {
   async fetch(request, env) {
     const response = await env.ASSETS.fetch(request);
     const contentType = contentTypeForPath(new URL(request.url).pathname);
@@ -56,3 +56,5 @@ export default {
     });
   },
 };
+
+export default worker;

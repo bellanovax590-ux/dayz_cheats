@@ -62,11 +62,17 @@ function NavLink({
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  const [menuState, setMenuState] = useState({ pathname, open: false });
+  const menuOpen =
+    menuState.pathname === pathname ? menuState.open : false;
+  const setMenuOpen = (value: boolean | ((prev: boolean) => boolean)) => {
+    setMenuState((prev) => {
+      const currentOpen = prev.pathname === pathname ? prev.open : false;
+      const nextOpen =
+        typeof value === "function" ? value(currentOpen) : value;
+      return { pathname, open: nextOpen };
+    });
+  };
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
