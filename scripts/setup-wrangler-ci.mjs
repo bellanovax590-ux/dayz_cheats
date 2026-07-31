@@ -33,8 +33,8 @@ if (args[0] === 'deploy') {
     process.exit(0);
   }
 
-  if (!args.some((arg) => arg.startsWith('--assets'))) {
-    args.push('--config', 'wrangler.toml', '--assets', './out');
+  if (!args.includes('--config')) {
+    args.push('--config', 'wrangler.toml');
   }
 }
 

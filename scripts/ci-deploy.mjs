@@ -14,7 +14,7 @@ if (!existsSync(indexPath)) {
 
 console.log(`Deploying static export from ${outDir}`);
 
-execSync("wrangler deploy --config wrangler.toml --assets ./out", {
+execSync("wrangler deploy --config wrangler.toml", {
   stdio: "inherit",
   env: process.env,
 });

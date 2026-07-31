@@ -1,5 +1,7 @@
 name = "dayz-cheats"
 compatibility_date = "2026-07-29"
+main = "worker.js"
 
 [assets]
 directory = "out"
+binding = "ASSETS"
