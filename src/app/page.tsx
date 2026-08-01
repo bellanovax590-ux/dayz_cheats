@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { preload } from "react-dom";
 import { HomePage } from "@/components/home/HomePage";
-import { CHECKOUT_URL } from "@/lib/checkout";
 import { createPageMetadata } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -38,17 +37,6 @@ const softwareApplicationSchema = {
   description:
     "DayZ Cheats is a third-party toolkit featuring ESP, aimbot, and 2D radar for DayZ with pricing, blog guides, and support on dayzcheat.net.",
   inLanguage: "en-US",
-  offers: {
-    "@type": "Offer",
-    url: CHECKOUT_URL,
-    priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
-    seller: {
-      "@type": "Organization",
-      name: "DayZ Cheats",
-      url: SITE_URL,
-    },
-  },
 };
 
 const websiteSchema = {

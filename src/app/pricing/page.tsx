@@ -5,7 +5,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { PricingPlans } from "@/components/shared/PricingPlans";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo";
-import { breadcrumbSchema, pricingServiceSchema } from "@/lib/schema";
+import { breadcrumbSchema, pricingPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "DayZ Cheats Pricing – ESP & Aimbot Access Plans",
@@ -27,7 +27,7 @@ export default function PricingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pricingServiceSchema()),
+          __html: JSON.stringify(pricingPageSchema()),
         }}
       />
       <script

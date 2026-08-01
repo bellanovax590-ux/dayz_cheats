@@ -1,4 +1,3 @@
-import { CHECKOUT_URL } from "@/lib/checkout";
 import { featureShowcases, plans } from "@/lib/site-data";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -17,45 +16,33 @@ export function breadcrumbSchema(
   };
 }
 
-export function pricingServiceSchema() {
+export function pricingPageSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: "DayZ Cheats – ESP, Aimbot & Radar Access",
+    "@type": "WebPage",
+    name: "DayZ Cheats Pricing – ESP & Aimbot Access Plans",
     description:
-      "Timed access to DayZ cheats with Player ESP, Loot ESP, Aimbot, 2D radar, and support on dayzcheat.net.",
-    provider: {
-      "@type": "Organization",
+      "Compare DayZ cheats pricing: 1 Day, 1 Week, and 1 Month access for ESP, aimbot, and radar on dayzcheat.net.",
+    url: `${SITE_URL}/pricing/`,
+    inLanguage: "en-US",
+    isPartOf: {
+      "@type": "WebSite",
       name: "DayZ Cheats",
       url: SITE_URL,
     },
-    serviceType: "Game software access",
-    url: `${SITE_URL}/pricing/`,
-    image: `${SITE_URL}/images/og-default.webp`,
-    areaServed: "Worldwide",
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
+    mainEntity: {
+      "@type": "ItemList",
       name: "DayZ Cheats Access Plans",
-      itemListElement: plans.map((plan) => ({
-        "@type": "Offer",
+      numberOfItems: plans.length,
+      itemListElement: plans.map((plan, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
         name: `${plan.name} – ${plan.duration}`,
+        url: `${SITE_URL}/pricing/#${plan.id}`,
         description: plan.description,
-        url: plan.checkoutHref || CHECKOUT_URL,
-        priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
-        seller: {
-          "@type": "Organization",
-          name: "DayZ Cheats",
-          url: SITE_URL,
-        },
       })),
     },
   };
-}
-
-/** @deprecated Use pricingServiceSchema */
-export function pricingProductSchema() {
-  return pricingServiceSchema();
 }
 
 export function featuresItemListSchema() {

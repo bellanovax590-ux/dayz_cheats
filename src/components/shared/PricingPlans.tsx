@@ -15,6 +15,7 @@ export function PricingPlans() {
         return (
           <article
             key={plan.id}
+            id={plan.id}
             className={`pricing-card blog-fade-item blog-fade-delay-${index} group flex flex-col border p-6 ${
               plan.highlighted
                 ? "pricing-card-featured border-[#bf5aff]/55 bg-[rgba(36,16,56,0.92)] shadow-[0_0_40px_rgba(191,90,255,0.12)]"
