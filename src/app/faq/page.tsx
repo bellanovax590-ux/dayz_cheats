@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { CircleHelp } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { faqItems } from "@/lib/site-data";
 import { createPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "FAQ – DayZ Cheats, BattlEye & Compatibility",
@@ -35,6 +37,17 @@ export default function FaqPage() {
           __html: JSON.stringify(faqPageSchema),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "FAQ", path: "/faq/" },
+            ]),
+          ),
+        }}
+      />
       <PageHero
         eyebrow="FAQ"
         title="Frequently asked questions"
@@ -43,6 +56,9 @@ export default function FaqPage() {
       />
       <section className="px-4 py-14 sm:px-8">
         <div className="mx-auto max-w-3xl">
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
+          />
           <FaqAccordion items={faqItems} />
         </div>
       </section>

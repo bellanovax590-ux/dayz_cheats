@@ -6,6 +6,19 @@ export const dynamic = "force-static";
 
 const buildDate = new Date();
 
+const staticPageDates: Record<string, string> = {
+  "/": "2026-07-29",
+  "/features/": "2026-07-28",
+  "/pricing/": "2026-07-28",
+  "/blog/": buildDate.toISOString().slice(0, 10),
+  "/faq/": "2026-07-27",
+  "/support/": "2026-07-27",
+  "/updates/": buildDate.toISOString().slice(0, 10),
+  "/privacy-policy/": "2026-07-20",
+  "/refund-policy/": "2026-07-20",
+  "/terms/": "2026-07-20",
+};
+
 const staticPages: Array<{
   path: string;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
@@ -26,7 +39,7 @@ const staticPages: Array<{
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = staticPages.map((page) => ({
     url: `${SITE_URL}${page.path}`,
-    lastModified: buildDate,
+    lastModified: new Date(staticPageDates[page.path] ?? buildDate),
     changeFrequency: page.changeFrequency,
     priority: page.priority,
   }));

@@ -3,8 +3,9 @@ import Link from "next/link";
 import { CreditCard, ShieldAlert } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { PricingPlans } from "@/components/shared/PricingPlans";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo";
-import { breadcrumbSchema, pricingProductSchema } from "@/lib/schema";
+import { breadcrumbSchema, pricingServiceSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "DayZ Cheats Pricing – ESP & Aimbot Access Plans",
@@ -26,7 +27,7 @@ export default function PricingPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pricingProductSchema()),
+          __html: JSON.stringify(pricingServiceSchema()),
         }}
       />
       <script
@@ -48,6 +49,9 @@ export default function PricingPage() {
       />
       <section className="px-4 py-14 sm:px-8">
         <div className="mx-auto max-w-6xl">
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: "Pricing" }]}
+          />
           <PricingPlans />
           <div className="mt-8 flex items-start gap-3 border border-amber-400/25 bg-amber-400/5 px-4 py-3 text-sm text-amber-100/90">
             <ShieldAlert

@@ -14,7 +14,7 @@ export function createPageMetadata(options: {
   const pageTitle = options.title;
 
   return {
-    title: pageTitle,
+    title: pageTitle ? { absolute: pageTitle } : undefined,
     description: options.description,
     keywords: options.keywords,
     alternates: {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FeaturesShowcase } from "@/components/shared/FeaturesShowcase";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo";
 import { breadcrumbSchema, featuresItemListSchema } from "@/lib/schema";
 
@@ -38,6 +39,11 @@ export default function FeaturesPage() {
           ),
         }}
       />
+      <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-8">
+        <Breadcrumbs
+          items={[{ label: "Home", href: "/" }, { label: "Features" }]}
+        />
+      </div>
       <FeaturesShowcase />
     </main>
   );

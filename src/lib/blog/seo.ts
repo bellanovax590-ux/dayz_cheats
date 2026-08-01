@@ -19,6 +19,10 @@ export function blogPostMetadata(post: BlogPost): Metadata {
     keywords: seo.keywords,
     alternates: {
       canonical: `/blog/${post.slug}/`,
+      languages: {
+        "en-US": url,
+        "x-default": url,
+      },
       types: {
         "application/rss+xml": `${SITE_URL}/feed.xml`,
       },

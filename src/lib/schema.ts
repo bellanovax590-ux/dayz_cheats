@@ -17,33 +17,45 @@ export function breadcrumbSchema(
   };
 }
 
-export function pricingProductSchema() {
+export function pricingServiceSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name: "DayZ Cheats – ESP, Aimbot & Radar Access",
     description:
       "Timed access to DayZ cheats with Player ESP, Loot ESP, Aimbot, 2D radar, and support on dayzcheat.net.",
-    brand: {
-      "@type": "Brand",
+    provider: {
+      "@type": "Organization",
       name: "DayZ Cheats",
+      url: SITE_URL,
     },
+    serviceType: "Game software access",
     url: `${SITE_URL}/pricing/`,
     image: `${SITE_URL}/images/og-default.webp`,
-    offers: plans.map((plan) => ({
-      "@type": "Offer",
-      name: plan.name,
-      description: plan.description,
-      url: plan.checkoutHref || CHECKOUT_URL,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: "DayZ Cheats",
-        url: SITE_URL,
-      },
-    })),
+    areaServed: "Worldwide",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "DayZ Cheats Access Plans",
+      itemListElement: plans.map((plan) => ({
+        "@type": "Offer",
+        name: `${plan.name} – ${plan.duration}`,
+        description: plan.description,
+        url: plan.checkoutHref || CHECKOUT_URL,
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        seller: {
+          "@type": "Organization",
+          name: "DayZ Cheats",
+          url: SITE_URL,
+        },
+      })),
+    },
   };
+}
+
+/** @deprecated Use pricingServiceSchema */
+export function pricingProductSchema() {
+  return pricingServiceSchema();
 }
 
 export function featuresItemListSchema() {
@@ -74,6 +86,26 @@ export function contactPageSchema() {
     url: `${SITE_URL}/support/`,
     mainEntity: {
       "@type": "Organization",
+      name: "DayZ Cheats",
+      url: SITE_URL,
+    },
+  };
+}
+
+export function webPageSchema(options: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: options.name,
+    description: options.description,
+    url: `${SITE_URL}${options.path}`,
+    inLanguage: "en-US",
+    isPartOf: {
+      "@type": "WebSite",
       name: "DayZ Cheats",
       url: SITE_URL,
     },

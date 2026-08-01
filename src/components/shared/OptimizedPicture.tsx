@@ -29,10 +29,15 @@ export function OptimizedPicture({
   const { path, query } = splitSrcQuery(src);
   const webp = `${webpSrc(path)}${query}`;
   const fallback = `${path}${query}`;
+  const resolvedSizes =
+    sizes ??
+    (width
+      ? `(max-width: ${width * 2}px) 100vw, ${width}px`
+      : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 800px");
 
   return (
     <picture className={className}>
-      <source srcSet={webp} type="image/webp" sizes={sizes} />
+      <source srcSet={webp} type="image/webp" sizes={resolvedSizes} />
       <img
         src={fallback}
         alt={alt}
@@ -43,7 +48,7 @@ export function OptimizedPicture({
         loading={loading}
         fetchPriority={fetchPriority}
         decoding="async"
-        sizes={sizes}
+        sizes={resolvedSizes}
       />
     </picture>
   );

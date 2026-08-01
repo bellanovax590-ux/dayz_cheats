@@ -38,44 +38,17 @@ const softwareApplicationSchema = {
   description:
     "DayZ Cheats is a third-party toolkit featuring ESP, aimbot, and 2D radar for DayZ with pricing, blog guides, and support on dayzcheat.net.",
   inLanguage: "en-US",
-  offers: [
-    {
-      "@type": "Offer",
-      name: "1 Day Access",
-      url: CHECKOUT_URL,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: "DayZ Cheats",
-        url: SITE_URL,
-      },
+  offers: {
+    "@type": "Offer",
+    url: CHECKOUT_URL,
+    priceCurrency: "USD",
+    availability: "https://schema.org/InStock",
+    seller: {
+      "@type": "Organization",
+      name: "DayZ Cheats",
+      url: SITE_URL,
     },
-    {
-      "@type": "Offer",
-      name: "1 Week Access",
-      url: CHECKOUT_URL,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: "DayZ Cheats",
-        url: SITE_URL,
-      },
-    },
-    {
-      "@type": "Offer",
-      name: "1 Month Access",
-      url: CHECKOUT_URL,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      seller: {
-        "@type": "Organization",
-        name: "DayZ Cheats",
-        url: SITE_URL,
-      },
-    },
-  ],
+  },
 };
 
 const websiteSchema = {
@@ -95,14 +68,6 @@ const websiteSchema = {
       width: 512,
       height: 512,
     },
-  },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/blog/?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
   },
 };
 

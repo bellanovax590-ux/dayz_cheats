@@ -3,8 +3,10 @@ import Link from "next/link";
 import { ArrowLeft, Scale } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { PolicyDocument } from "@/components/shared/PolicyDocument";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { termsSections } from "@/lib/legal-content";
 import { createPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Terms of Use – DayZ Cheats",
@@ -17,6 +19,30 @@ export const metadata: Metadata = createPageMetadata({
 export default function TermsPage() {
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webPageSchema({
+              name: "Terms of Use – DayZ Cheats",
+              description:
+                "Terms of use for dayzcheat.net and DayZ cheats access.",
+              path: "/terms/",
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Terms of Use", path: "/terms/" },
+            ]),
+          ),
+        }}
+      />
       <PageHero
         eyebrow="Policy"
         title="Terms of use"
@@ -25,6 +51,9 @@ export default function TermsPage() {
       />
       <section className="px-4 py-14 sm:px-8">
         <div className="mx-auto max-w-3xl">
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: "Terms of Use" }]}
+          />
           <PolicyDocument sections={termsSections} />
           <Link
             href="/"

@@ -3,8 +3,10 @@ import Link from "next/link";
 import { ArrowLeft, Shield } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { PolicyDocument } from "@/components/shared/PolicyDocument";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { refundPolicySections } from "@/lib/legal-content";
 import { createPageMetadata } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Refund Policy – DayZ Cheats",
@@ -17,6 +19,30 @@ export const metadata: Metadata = createPageMetadata({
 export default function RefundPolicyPage() {
   return (
     <main className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webPageSchema({
+              name: "Refund Policy – DayZ Cheats",
+              description:
+                "Refund policy for DayZ cheats purchases on dayzcheat.net.",
+              path: "/refund-policy/",
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Refund Policy", path: "/refund-policy/" },
+            ]),
+          ),
+        }}
+      />
       <PageHero
         eyebrow="Policy"
         title="Refund policy"
@@ -25,6 +51,12 @@ export default function RefundPolicyPage() {
       />
       <section className="px-4 py-14 sm:px-8">
         <div className="mx-auto max-w-3xl">
+          <Breadcrumbs
+            items={[
+              { label: "Home", href: "/" },
+              { label: "Refund Policy" },
+            ]}
+          />
           <PolicyDocument sections={refundPolicySections} />
           <Link
             href="/support/"
