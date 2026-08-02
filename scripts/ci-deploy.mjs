@@ -16,6 +16,11 @@ if (!existsSync(indexPath)) {
 
 console.log(`Deploying static export from ${outDir}`);
 
+execSync("node scripts/copy-deploy-assets.mjs", {
+  stdio: "inherit",
+  cwd: root,
+});
+
 execSync("node scripts/run-wrangler.mjs deploy --config wrangler.toml", {
   stdio: "inherit",
   cwd: root,

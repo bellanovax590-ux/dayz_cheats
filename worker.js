@@ -71,8 +71,16 @@ const worker = {
       return response;
     }
 
-    const headers = new Headers(response.headers);
+    const headers = new Headers();
     headers.set("Content-Type", contentType);
+
+    for (const [key, value] of response.headers.entries()) {
+      const lowerKey = key.toLowerCase();
+      if (lowerKey === "content-type" || lowerKey === "content-length") {
+        continue;
+      }
+      headers.set(key, value);
+    }
 
     return new Response(response.body, {
       status: response.status,
