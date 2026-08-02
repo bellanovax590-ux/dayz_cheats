@@ -32,8 +32,8 @@ function contentTypeForPath(pathname) {
   }
 
   const dot = lower.lastIndexOf(".");
-  if (dot === -1) {
-    return null;
+  if (dot === -1 || dot <= lower.lastIndexOf("/")) {
+    return MIME_TYPES[".html"];
   }
 
   return MIME_TYPES[lower.slice(dot)] ?? null;
@@ -41,14 +41,15 @@ function contentTypeForPath(pathname) {
 
 function canonicalRedirect(request) {
   const url = new URL(request.url);
+  const host = url.hostname.toLowerCase();
 
-  if (url.hostname === `www.${CANONICAL_HOST}`) {
+  if (host === `www.${CANONICAL_HOST}`) {
     url.hostname = CANONICAL_HOST;
     url.protocol = "https:";
     return Response.redirect(url.toString(), 301);
   }
 
-  if (url.protocol === "http:" && url.hostname === CANONICAL_HOST) {
+  if (url.protocol === "http:" && host === CANONICAL_HOST) {
     url.protocol = "https:";
     return Response.redirect(url.toString(), 301);
   }

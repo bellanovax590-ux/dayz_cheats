@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 const buildDate = new Date();
 
 const staticPageDates: Record<string, string> = {
-  "/": "2026-07-29",
+  "/": "2026-07-20",
   "/features/": "2026-07-28",
   "/pricing/": "2026-07-28",
   "/blog/": buildDate.toISOString().slice(0, 10),

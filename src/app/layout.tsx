@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   applicationName: "DayZ Cheats",
   title: {
-    default: "DayZ Cheats – ESP & Aimbot | DayZ",
+    default: "DayZ Cheats – ESP, Aimbot & Radar",
     template: "%s | DayZ Cheats",
   },
   description:
-    "Explore DayZ Cheats featuring ESP and Aimbot. View features, pricing plans, blog guides, updates, and support information on dayzcheat.net.",
+    "DayZ cheats with Player ESP, Loot ESP, aimbot, and 2D radar. View features, pricing, blog guides, updates, and support on dayzcheat.net.",
   alternates: {
     canonical: "/",
     types: {
@@ -61,9 +61,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "DayZ Cheats – ESP & Aimbot | DayZ",
+    title: "DayZ Cheats – ESP, Aimbot & Radar",
     description:
-      "Explore DayZ Cheats featuring ESP and Aimbot. View features, pricing plans, updates, and support information.",
+      "DayZ cheats with Player ESP, Loot ESP, aimbot, and 2D radar. View features, pricing, and support on dayzcheat.net.",
     url: `${SITE_URL}/`,
     siteName: "DayZ Cheats",
     locale: "en_US",
@@ -73,15 +73,15 @@ export const metadata: Metadata = {
         url: DEFAULT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "DayZ Cheats – ESP and Aimbot for DayZ",
+        alt: "DayZ Cheats – ESP, Aimbot and Radar for DayZ",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DayZ Cheats – ESP & Aimbot | DayZ",
+    title: "DayZ Cheats – ESP, Aimbot & Radar",
     description:
-      "Explore DayZ Cheats featuring ESP and Aimbot on dayzcheat.net.",
+      "DayZ cheats with Player ESP, Loot ESP, aimbot, and 2D radar on dayzcheat.net.",
     images: [DEFAULT_OG_IMAGE],
   },
 };
@@ -99,7 +99,7 @@ const organizationSchema = {
     height: 512,
   },
   image: `${SITE_URL}/images/zadeyo-logo-512.png`,
-  sameAs: [DISCORD_URL, `${SITE_URL}/blog/`],
+  sameAs: [DISCORD_URL],
 };
 
 const themeBootstrapScript = `(function(){try{var t=localStorage.getItem("dayz-theme");if(t==="light"||t==="dark"){document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}else{document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}}catch(e){document.documentElement.dataset.theme="dark";document.documentElement.style.colorScheme="dark";}})();`;

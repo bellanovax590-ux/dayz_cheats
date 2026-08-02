@@ -39,7 +39,7 @@ export function createPageMetadata(options: {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: "DayZ Cheats – ESP and Aimbot for DayZ",
+          alt: "DayZ Cheats – ESP, Aimbot and Radar for DayZ",
         },
       ],
     },

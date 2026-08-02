@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { BlogPostGrid } from "@/components/blog/BlogPostGrid";
 import { PageHero } from "@/components/layout/PageHero";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { blogPosts } from "@/lib/blog/index";
 import { enhanceBlogSeo } from "@/lib/blog/keyword-seo";
-import {
-  blogCollectionSchema,
-  blogIndexOgImage,
-} from "@/lib/blog/seo";
+import { blogIndexOgImage } from "@/lib/blog/seo";
 import { CHECKOUT_URL } from "@/lib/checkout";
 import { createPageMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -85,12 +84,6 @@ export default function BlogPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blogCollectionSchema(blogPosts.length)),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", path: "/" },
@@ -106,10 +99,24 @@ export default function BlogPage() {
         icon={BookOpen}
       />
       <section className="border-b border-white/10 px-4 py-6 sm:px-8">
+        <div className="mx-auto max-w-6xl">
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: "Blog" }]}
+          />
+        </div>
+      </section>
+      <section className="border-b border-white/10 px-4 pb-6 sm:px-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 border border-[#bf5aff]/30 bg-[#bf5aff]/5 p-5">
           <p className="max-w-2xl text-sm leading-relaxed text-[#c8bfd8]">
-            Every guide links to live DayZ cheat features, pricing, and secure
-            checkout. Use search above the grid for dayz aimbot, esp, cheats,
+            Every guide links to live{" "}
+            <Link href="/features/" className="text-[#bf5aff] underline-offset-2 hover:underline">
+              DayZ cheat features
+            </Link>
+            ,{" "}
+            <Link href="/pricing/" className="text-[#bf5aff] underline-offset-2 hover:underline">
+              pricing
+            </Link>
+            , and secure checkout. Use search above the grid for ESP, aimbot,
             radar, or BattlEye topics.
           </p>
           <a

@@ -10,34 +10,23 @@ preload("/images/dayz-character-cutout.webp", {
 });
 
 export const metadata: Metadata = createPageMetadata({
-  title: "DayZ Cheats – ESP & Aimbot | DayZ",
+  title: "DayZ Cheats – ESP, Aimbot & Radar",
   description:
-    "DayZ Cheats with Player ESP, Loot ESP, Aimbot, and 2D radar. Compare features, pricing, FAQ, and searchable blog guides on dayzcheat.net.",
+    "DayZ cheats with Player ESP, Loot ESP, aimbot, and 2D radar. Compare features, pricing, FAQ, and searchable blog guides on dayzcheat.net.",
   path: "/",
   keywords: [
     "dayz cheat",
     "DayZ cheats",
-    "DayZ cheat ESP",
     "DayZ ESP",
     "DayZ aimbot",
     "DayZ radar",
+    "DayZ wallhack",
+    "DayZ player ESP",
+    "DayZ loot ESP",
     "dayz hack",
     "dayzcheat.net",
   ],
 });
-
-const softwareApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "DayZ Cheats",
-  applicationCategory: "GameApplication",
-  operatingSystem: "Windows",
-  url: `${SITE_URL}/`,
-  image: `${SITE_URL}/images/og-default.webp`,
-  description:
-    "DayZ Cheats is a third-party toolkit featuring ESP, aimbot, and 2D radar for DayZ with pricing, blog guides, and support on dayzcheat.net.",
-  inLanguage: "en-US",
-};
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -45,7 +34,7 @@ const websiteSchema = {
   name: "DayZ Cheats",
   url: SITE_URL,
   description:
-    "Official DayZ Cheats site for ESP, Aimbot, pricing, FAQ, blog guides, and support.",
+    "Official DayZ Cheats site for ESP, aimbot, radar, pricing, FAQ, blog guides, and support.",
   inLanguage: "en-US",
   publisher: {
     "@type": "Organization",
@@ -62,12 +51,6 @@ const websiteSchema = {
 export default function Page() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(softwareApplicationSchema),
-        }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

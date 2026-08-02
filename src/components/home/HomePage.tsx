@@ -154,12 +154,19 @@ function BlogGuidesBlock() {
               id="blog-guides-heading"
               className="mt-2 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl"
             >
-              DayZ cheat guides for Google search
+              DayZ cheat guides &amp; tips
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
               Searchable long-form articles on DayZ ESP, aimbot, loot filters,
-              radar, BattlEye updates, and buying. Each guide includes a Get
-              DayZ Cheats link so readers can move from tips to checkout.
+              radar, BattlEye updates, and buying. Each guide links to{" "}
+              <Link href="/features/" className="text-[#bf5aff] underline-offset-2 hover:underline">
+                features
+              </Link>
+              ,{" "}
+              <Link href="/pricing/" className="text-[#bf5aff] underline-offset-2 hover:underline">
+                pricing
+              </Link>
+              , and checkout.
             </p>
           </div>
           <Link
@@ -224,9 +231,20 @@ function HeroBlock() {
           </h1>
 
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
-            Third-party ESP and Aimbot toolkit for DayZ. Browse features,
-            pricing, FAQ, and guides on dedicated pages — then choose an access
-            period that fits your schedule.
+            DayZ cheats with Player ESP, Loot ESP, aimbot, and 2D radar for
+            survival servers. Compare{" "}
+            <Link href="/features/" className="text-[#bf5aff] underline-offset-2 hover:underline">
+              features
+            </Link>
+            ,{" "}
+            <Link href="/pricing/" className="text-[#bf5aff] underline-offset-2 hover:underline">
+              pricing
+            </Link>
+            , and{" "}
+            <Link href="/faq/" className="text-[#bf5aff] underline-offset-2 hover:underline">
+              FAQ
+            </Link>{" "}
+            — then choose an access plan or read setup guides.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-2">
@@ -267,6 +285,18 @@ function HeroBlock() {
               Get access
               <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
+            <Link
+              href="/pricing/"
+              className="inline-flex items-center gap-2 border border-[#bf5aff]/40 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#bf5aff] transition hover:bg-[#bf5aff]/10"
+            >
+              View pricing
+            </Link>
+            <Link
+              href="/updates/"
+              className="text-xs font-semibold uppercase tracking-[0.14em] text-[#a89ab8] transition hover:text-[#bf5aff]"
+            >
+              Status &amp; updates
+            </Link>
           </div>
         </div>
 
@@ -299,7 +329,7 @@ function FeaturesBlock() {
               Features preview
             </p>
             <h2 className="mt-2 text-3xl font-black uppercase tracking-tight text-white">
-              ESP & Aimbot modules
+              ESP, Aimbot &amp; Radar modules
             </h2>
           </div>
         </div>
@@ -327,11 +357,12 @@ function PreviewBlock() {
             DayZ cheats in action
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
-            DayZ cheats are built around map awareness and fight control. Player
-            ESP and loot ESP help you read towns before you commit. Aimbot tools
-            add configurable FOV, smoothing, and bone selection for PvP.
-            Containers and 2D radar keep scavenging routes efficient on large
-            maps. Click through the gallery to review each module preview.
+            DayZ cheats combine player ESP, loot ESP, and 2D radar so you can
+            read contacts before fights. ESP visibility works like a practical
+            wallhack layer for players, infected, and containers. Aimbot tools
+            add configurable FOV, smoothing, and bone selection — tuned for
+            controlled PvP, not reckless triggerbot spam. Click through the
+            gallery to review each module preview.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
             Use these visuals to understand what each feature shows in-game, then
@@ -348,6 +379,12 @@ function PreviewBlock() {
             className="inline-flex items-center gap-2 border border-[#bf5aff]/40 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[#bf5aff] transition hover:bg-[#bf5aff]/10"
           >
             View all features
+          </Link>
+          <Link
+            href="/pricing/"
+            className="inline-flex items-center gap-2 border border-white/15 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-white transition hover:border-[#bf5aff]/40"
+          >
+            Compare pricing
           </Link>
           <a
             href={CHECKOUT_URL}
