@@ -5,6 +5,7 @@ import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { faqItems } from "@/lib/site-data";
 import { createPageMetadata } from "@/lib/seo";
+import { PRIMARY_KEYWORDS } from "@/lib/keywords";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
@@ -12,7 +13,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Answers about DayZ Cheats, BattlEye risk, ESP and Aimbot features, system compatibility, updates, and refunds.",
   path: "/faq/",
-  keywords: ["DayZ cheats FAQ", "BattlEye", "DayZ ESP", "DayZ aimbot"],
+  keywords: ["dayz cheats faq", "battleye", ...PRIMARY_KEYWORDS],
 });
 
 const faqPageSchema = {

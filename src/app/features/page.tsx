@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FeaturesShowcase } from "@/components/shared/FeaturesShowcase";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
+import { PRIMARY_KEYWORDS } from "@/lib/keywords";
 import { createPageMetadata } from "@/lib/seo";
 import { breadcrumbSchema, featuresItemListSchema } from "@/lib/schema";
 
@@ -11,11 +12,12 @@ export const metadata: Metadata = createPageMetadata({
   path: "/features/",
   keywords: [
     "dayz cheat features",
-    "DayZ ESP",
-    "DayZ aimbot",
-    "DayZ radar",
-    "DayZ loot ESP",
-    "dayz cheats",
+    "dayz esp",
+    "dayz aimbot",
+    "dayz radar",
+    "dayz wallhack",
+    "dayz loot esp",
+    ...PRIMARY_KEYWORDS,
   ],
 });
 

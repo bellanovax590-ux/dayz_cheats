@@ -13,6 +13,7 @@ import { BlindsCarousel } from "@/components/home/BlindsCarousel";
 import { OptimizedPicture } from "@/components/shared/OptimizedPicture";
 import { blogPosts } from "@/lib/blog";
 import { CHECKOUT_URL } from "@/lib/checkout";
+import { KEYWORD_TOPICS } from "@/lib/keywords";
 
 const cheatSlides = [
   {
@@ -80,6 +81,7 @@ export function HomePage() {
       {/* hero + features + previews kept via existing file structure - rewritten fully below */}
       <HeroBlock />
       <FeaturesBlock />
+      <KeywordTopicsBlock />
       <PreviewBlock />
       <BlogGuidesBlock />
 
@@ -334,6 +336,57 @@ function FeaturesBlock() {
           </div>
         </div>
         <FeatureStrandCards />
+      </div>
+    </section>
+  );
+}
+
+function KeywordTopicsBlock() {
+  return (
+    <section
+      className="border-b border-white/10 px-4 py-16 sm:px-8"
+      aria-labelledby="keyword-topics-heading"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#bf5aff]">
+            Popular searches
+          </p>
+          <h2
+            id="keyword-topics-heading"
+            className="mt-2 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl"
+          >
+            DayZ cheats, ESP, aimbot &amp; more
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+            Players search for DayZ cheats, DayZ ESP, DayZ aimbot, wallhack
+            visibility, loot ESP, radar, and hack tools every day. Below is what
+            each term means on dayzcheat.net and where to learn more.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {KEYWORD_TOPICS.map((topic) => (
+            <article
+              key={topic.term}
+              className="border border-white/10 bg-[rgba(18,10,32,0.85)] p-5"
+            >
+              <h3 className="text-lg font-bold uppercase tracking-wide text-white">
+                {topic.term}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#c8bfd8]">
+                {topic.description}
+              </p>
+              <Link
+                href={topic.href}
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#bf5aff] hover:underline"
+              >
+                {topic.linkLabel}
+                <ArrowRight className="h-3 w-3" aria-hidden />
+              </Link>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );

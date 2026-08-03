@@ -9,6 +9,7 @@ import { enhanceBlogSeo } from "@/lib/blog/keyword-seo";
 import { blogIndexOgImage } from "@/lib/blog/seo";
 import { CHECKOUT_URL } from "@/lib/checkout";
 import { createPageMetadata } from "@/lib/seo";
+import { PRIMARY_KEYWORDS } from "@/lib/keywords";
 import { breadcrumbSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -58,17 +59,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Searchable DayZ cheat guides on ESP setup, aimbot FOV, loot filters, radar, BattlEye checks, and buying tips. Long-form SEO articles from dayzcheat.net.",
   path: "/blog/",
-  keywords: [
-    "dayz cheat",
-    "DayZ cheats",
-    "DayZ cheat guide",
-    "DayZ ESP",
-    "DayZ aimbot",
-    "DayZ loot ESP",
-    "DayZ hack guide",
-    "BattlEye",
-    "dayzcheat.net",
-  ],
+  keywords: ["dayz cheat guide", "battleye", ...PRIMARY_KEYWORDS],
   ogImage: blogIndexOgImage(),
 });
 

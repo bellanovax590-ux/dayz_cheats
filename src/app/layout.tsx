@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { DISCORD_URL } from "@/lib/discord";
+import { PRIMARY_KEYWORDS } from "@/lib/keywords";
 import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
 import "./globals.css";
@@ -30,7 +31,8 @@ export const metadata: Metadata = {
     template: "%s | DayZ Cheats",
   },
   description:
-    "DayZ cheats with Player ESP, Loot ESP, aimbot, and 2D radar. View features, pricing, blog guides, updates, and support on dayzcheat.net.",
+    "DayZ cheats with Player ESP, Loot ESP, aimbot, wallhack-style visibility, radar, and triggerbot-style recoil assist. View features, pricing, blog guides, updates, and support on dayzcheat.net.",
+  keywords: [...PRIMARY_KEYWORDS],
   alternates: {
     canonical: "/",
     types: {

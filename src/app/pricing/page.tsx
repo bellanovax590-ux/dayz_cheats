@@ -5,6 +5,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { PricingPlans } from "@/components/shared/PricingPlans";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo";
+import { PRIMARY_KEYWORDS } from "@/lib/keywords";
 import { breadcrumbSchema, pricingPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
@@ -14,10 +15,10 @@ export const metadata: Metadata = createPageMetadata({
   path: "/pricing/",
   keywords: [
     "dayz cheats price",
-    "DayZ cheats pricing",
-    "buy DayZ ESP",
-    "DayZ aimbot buy",
-    "dayz cheat cost",
+    "buy dayz esp",
+    "buy dayz aimbot",
+    "dayz hack buy",
+    ...PRIMARY_KEYWORDS,
   ],
 });
 
