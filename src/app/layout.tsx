@@ -84,6 +84,11 @@ export const metadata: Metadata = {
       "DayZ cheats with Player ESP, Loot ESP, aimbot, and 2D radar on dayzcheat.net.",
     images: [DEFAULT_OG_IMAGE],
   },
+  verification: {
+    other: {
+      "msvalidate.01": "E6DB2933F132875FA88887C36E0344C6",
+    },
+  },
 };
 
 const organizationSchema = {
