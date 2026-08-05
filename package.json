@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-favicons.mjs && node scripts/generate-feed.mjs && next build",
+    "build": "node scripts/run-build.mjs",
     "postbuild": "node scripts/verify-build-output.mjs && node scripts/copy-deploy-assets.mjs",
     "start": "next start",
     "lint": "eslint",
@@ -15,8 +15,7 @@
     "deploy:ci": "node scripts/ci-deploy.mjs",
     "deploy:pages": "node scripts/run-wrangler.mjs pages deploy out --project-name=dayz-cheats",
     "preview": "npm run build && npx --yes serve out -l 3000",
-    "optimize-images": "node scripts/optimize-images.mjs",
-    "postinstall": "node scripts/setup-wrangler-ci.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.27.0",

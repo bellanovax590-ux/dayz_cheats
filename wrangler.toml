@@ -1,7 +1,9 @@
-# Cloudflare Workers Builds (recommended settings in dashboard):
+# Cloudflare Workers Builds — recommended dashboard settings:
 #   Build command:  npm run build
 #   Deploy command: npx wrangler deploy
-# Do NOT deploy inside postbuild — Cloudflare runs deploy as a separate step.
+#   Enable "Build caching" in Settings → Builds (caches node_modules + .next/cache)
+#
+# Build only produces out/; deploy is a separate step (never run wrangler in postbuild).
 
 name = "dayz-cheats"
 compatibility_date = "2026-05-03"
@@ -10,3 +12,7 @@ main = "worker.js"
 [assets]
 directory = "out"
 binding = "ASSETS"
+
+[build]
+command = "npm run build"
+cwd = "."
