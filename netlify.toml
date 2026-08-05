@@ -1,0 +1,50 @@
+# Canonical host: https://dayzcheat.net (non-www)
+# Primary deployment uses Cloudflare Workers (worker.js). Use this file if you deploy on Netlify.
+
+[[redirects]]
+  from = "http://www.dayzcheat.net/*"
+  to = "https://dayzcheat.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.dayzcheat.net/*"
+  to = "https://dayzcheat.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://dayzcheat.net/*"
+  to = "https://dayzcheat.net/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/features"
+  to = "/features/"
+  status = 301
+
+[[redirects]]
+  from = "/pricing"
+  to = "/pricing/"
+  status = 301
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq/"
+  status = 301
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/support"
+  to = "/support/"
+  status = 301
+
+[[redirects]]
+  from = "/updates"
+  to = "/updates/"
+  status = 301

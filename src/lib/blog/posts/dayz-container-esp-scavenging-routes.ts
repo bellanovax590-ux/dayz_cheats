@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzContainerEspScavengingRoutesPost: BlogPost = {
   slug: "dayz-container-esp-scavenging-routes",
@@ -380,7 +381,7 @@ export const dayzContainerEspScavengingRoutesPost: BlogPost = {
           label: "Military loot runs"
         },
         {
-          href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz",
+          href: CHECKOUT_URL,
           label: "Get DayZ Cheats"
         }
       ]

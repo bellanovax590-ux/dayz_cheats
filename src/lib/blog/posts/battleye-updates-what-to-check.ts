@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const battleyeUpdatesWhatToCheckPost: BlogPost = {
   slug: "battleye-updates-what-to-check",
@@ -82,6 +83,6 @@ export const battleyeUpdatesWhatToCheckPost: BlogPost = {
     { type: "p", text: "Verify game files through Steam after every DayZ patch before you blame the cheat menu. Corrupted installs mimic broken ESP and crash on toggle. Integrity check is free; guessing for two hours is not. Once files are clean and loader version matches, test Player ESP only on coast for ten minutes. Add loot and other layers one at a time so you know which toggle misbehaves if something fails post-patch." },
     { type: "p", text: "Plan shorter sessions for the first three days after a major BattlEye or DayZ update. Long marathon hours stack exposure when signatures may still be in flux even if status shows green. Treat gear as disposable that week. Alts exist for a reason — main accounts belong to vanilla play if losing them would hurt. No checklist removes ban probability; shorter windows reduce how much you lose in one bad timing window." },
     { type: "p", text: "Write one line in a notes app after each launch: date, game version, loader version, status color, any crash or odd ESP behavior. Patterns emerge fast — you may notice hospital runs always fail after maintenance, or hotkeys stop working until rebind. That log beats angry tickets with no version numbers. dayzcheat.net support fixes real mismatches when data is clear; they cannot undo BattlEye bans because you skipped reading /updates/." },
-    { type: "cta", links: [{ href: "/updates/", label: "Read latest updates" }, { href: "/faq/", label: "FAQ and policies" }, { href: "/pricing/", label: "View pricing" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/updates/", label: "Read latest updates" }, { href: "/faq/", label: "FAQ and policies" }, { href: "/pricing/", label: "View pricing" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

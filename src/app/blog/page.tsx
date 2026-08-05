@@ -94,6 +94,11 @@ export default function BlogPage() {
           <Breadcrumbs
             items={[{ label: "Home", href: "/" }, { label: "Blog" }]}
           />
+          <p className="mt-4 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+            Browse DayZ cheat guides and tips on ESP setup, aimbot tuning, loot
+            filters, radar, BattlEye habits, and buying safely — written for
+            players searching dayz cheats, dayz esp, and dayz aimbot.
+          </p>
         </div>
       </section>
       <section className="border-b border-white/10 px-4 pb-6 sm:px-8">

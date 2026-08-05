@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzEspSetupBasicsPost: BlogPost = {
   slug: "dayz-esp-setup-basics",
@@ -62,6 +63,6 @@ export const dayzEspSetupBasicsPost: BlogPost = {
     { type: "p", text: "Test hotkeys in a quiet area before you carry rare gear inland. Toggle Player ESP off and on, swap between Travel and Loot profiles, and confirm your panic key disables loot layers first if you use one. Muscle memory built on empty roads transfers to firefights; menu diving during contact defeats the purpose of a readable DayZ overlay. BattlEye does not care whether your binds work — you should, because broken keys get you killed even when ESP data was correct." },
     { type: "p", text: "Keep audio as part of setup, not an afterthought. Headphones on, footsteps up, music down. Player ESP boxes appear before sound sometimes; sound appears before boxes other times. Setup that ignores audio produces players who sprint because a label cleared, then die to prone contacts or grenades ESP never flagged. The cleanest overlay still loses to a player who listens while you stare at ground loot text during a third-party push." },
     { type: "p", text: "Accept BattlEye risk in plain terms before you enable any layer. DayZ ESP breaks game rules on protected servers and can cost your Steam account or hardware ID. No distance slider, color choice, or low-opacity box makes you undetected or safe forever. Use an alt if losing the account would ruin your week, read changelogs every launch, and treat geared characters as temporary. Setup discipline reduces clutter and version mistakes — it does not remove enforcement." },
-    { type: "cta", links: [{ href: "/features/", label: "Explore DayZ ESP features" }, { href: "/faq/", label: "FAQ and policies" }, { href: "/blog/best-dayz-esp-settings-for-beginners/", label: "Beginner ESP settings" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/features/", label: "Explore DayZ ESP features" }, { href: "/faq/", label: "FAQ and policies" }, { href: "/blog/best-dayz-esp-settings-for-beginners/", label: "Beginner ESP settings" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

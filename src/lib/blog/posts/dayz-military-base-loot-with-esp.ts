@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzMilitaryBaseLootWithEspPost: BlogPost = {
   slug: "dayz-military-base-loot-with-esp",
@@ -262,7 +263,7 @@ export const dayzMilitaryBaseLootWithEspPost: BlogPost = {
         { href: "/blog/dayz-loot-esp-filter-guide/", label: "Loot filter guide" },
         { href: "/blog/quiet-compound-clears-with-player-esp/", label: "Compound clears" },
         { href: "/blog/keep-dayz-overlay-clean/", label: "Clean overlay tips" },
-        { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" },
+        { href: CHECKOUT_URL, label: "Get DayZ Cheats" },
       ],
     },
   ],

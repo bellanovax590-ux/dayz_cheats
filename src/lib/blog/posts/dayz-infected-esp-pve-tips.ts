@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzInfectedEspPveTipsPost: BlogPost = {
   slug: "dayz-infected-esp-pve-tips",
@@ -345,7 +346,7 @@ export const dayzInfectedEspPveTipsPost: BlogPost = {
         { href: "/blog/best-dayz-esp-settings-for-beginners/", label: "Beginner ESP" },
         { href: "/blog/dayz-loot-esp-filter-guide/", label: "Loot filters" },
         { href: "/features/", label: "Features" },
-        { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" },
+        { href: CHECKOUT_URL, label: "Get DayZ Cheats" },
       ],
     },
   ],

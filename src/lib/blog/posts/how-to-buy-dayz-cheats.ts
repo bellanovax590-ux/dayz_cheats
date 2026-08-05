@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const howToBuyDayzCheatsPost: BlogPost = {
   slug: "how-to-buy-dayz-cheats",
@@ -69,6 +70,6 @@ export const howToBuyDayzCheatsPost: BlogPost = {
     { type: "p", text: "Skipping /faq/ on HWID, refunds, and household PC rules causes tickets support cannot magically fix. Family computers, shared Steam libraries, and second installs without reading policy produce avoidable lockouts. Document which PC is bound, which account owns DayZ, and when your plan expires before first inject. Informed buyers open fewer angry messages and recover faster when real product bugs appear." },
     { type: "p", text: "Expecting instant combat dominance because you paid is a mindset trap. dayzcheat.net access opens menus — you still need ESP setup, patch-day discipline, and vanilla movement skills. Buyers who enable aimbot hour one without Player ESP basics generate reports and blame the product. Sequence learning like the guides on this blog recommend: status check, conservative ESP, profiles, then optional combat layers if you accept extra visibility." },
     { type: "p", text: "Believing premium pricing or longer plans grant undetected status is flat wrong. BattlEye enforcement applies regardless of subscription tier. Payment buys loader access when status allows — not immunity, not refunds after bans, not permission to skip /updates/. Treat purchases as temporary operational budget alongside disposable accounts. Honest expectations beat marketing fantasy every time you launch Steam." },
-    { type: "cta", links: [{ href: "/features/", label: "Explore DayZ cheat features" }, { href: "/faq/", label: "FAQ and refund policy" }, { href: "/support/", label: "Contact support" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/features/", label: "Explore DayZ cheat features" }, { href: "/faq/", label: "FAQ and refund policy" }, { href: "/support/", label: "Contact support" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

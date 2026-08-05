@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzPvpAimbotProfilesPost: BlogPost = {
   slug: "dayz-pvp-aimbot-profiles",
@@ -556,7 +557,7 @@ export const dayzPvpAimbotProfilesPost: BlogPost = {
           label: "FOV and smoothing"
         },
         {
-          href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz",
+          href: CHECKOUT_URL,
           label: "Get DayZ Cheats"
         }
       ]

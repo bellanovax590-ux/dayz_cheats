@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CreditCard, LifeBuoy, Mail } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { CHECKOUT_URL } from "@/lib/checkout";
 import { DISCORD_SERVER_ID, DISCORD_URL } from "@/lib/discord";
 import { createPageMetadata } from "@/lib/seo";
@@ -59,8 +60,20 @@ export default function SupportPage() {
         description="Contact support with your order ID for access, update, or billing help. Join Discord for faster community help, or open checkout if you still need access."
         icon={LifeBuoy}
       />
+      <section className="border-b border-white/10 px-4 py-6 sm:px-8">
+        <div className="mx-auto max-w-3xl">
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: "Support" }]}
+          />
+        </div>
+      </section>
       <section className="px-4 py-14 sm:px-8">
         <div className="mx-auto max-w-3xl space-y-4">
+          <p className="text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+            DayZ cheats customer support helps with loader access, billing,
+            HWID resets, and update questions. Include your order ID and a short
+            summary so the team can respond faster after DayZ patches.
+          </p>
           <div className="flex items-start gap-3 border border-white/10 bg-[rgba(18,10,32,0.85)] p-5">
             <Mail className="mt-0.5 h-5 w-5 text-[#bf5aff]" aria-hidden />
             <div>

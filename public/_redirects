@@ -1,5 +1,6 @@
-# Trailing slashes for canonical URLs (Workers _redirects: relative paths only)
-# www -> non-www and HTTP -> HTTPS are handled in worker.js
+# Trailing slashes for canonical URLs (Cloudflare Workers _redirects)
+# www -> non-www and HTTP -> HTTPS: worker.js (primary) | netlify.toml | vercel.json
+# Attach www.dayzcheat.net as a custom domain on the Cloudflare Worker for 301 redirects.
 /features /features/ 301
 /pricing /pricing/ 301
 /faq /faq/ 301

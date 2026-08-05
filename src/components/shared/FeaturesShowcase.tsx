@@ -148,9 +148,10 @@ export function FeaturesShowcase() {
             DayZ cheat modules
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
-            Sixteen visuals covering ESP, aim, radar, loot filters, and
-            awareness tools. Capabilities only — not a safety guarantee against
-            BattlEye.
+            Sixteen DayZ cheat modules covering ESP, aimbot, radar, loot
+            filters, and awareness tools. Each preview shows what the DayZ
+            cheats product can display in-game — capabilities only, not a safety
+            guarantee against BattlEye.
           </p>
         </header>
       </div>

@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const bestDayzEspSettingsForBeginnersPost: BlogPost = {
   slug: "best-dayz-esp-settings-for-beginners",
@@ -85,6 +86,6 @@ export const bestDayzEspSettingsForBeginnersPost: BlogPost = {
     { type: "p", text: "Use coastal roads for sessions one through three. Chernarus south spawn teaches how Player ESP boxes appear before sound without the long death walk inland failures cost. Do not rush NWAF because a clip made it look easy. Beginner preset numbers assume low-stakes learning — inland gear fear makes you stare at labels instead of doorways. Master coast extracts first; expand range and categories only when the HUD feels boring, not when it feels weak because you skipped steps." },
     { type: "p", text: "Keep one notes line per death: what ESP showed, what you ignored, what cluttered the screen. Beginners who journal adjust faster than beginners who copy a new YouTube config daily. The preset is a starting point tuned to your monitor and map choice over time. If labels overlap, shrink player range fifty meters instead of enabling more categories. More data is not safer — it is slower, and slow gets you reported when your head stays down reading text." },
     { type: "p", text: "Remember that beginner-friendly settings do not reduce BattlEye exposure. Thin outlines and modest range still break DayZ terms on official servers. Other players still report suspicious behavior even when your HUD looks clean. Treat the first week as learning how Player ESP and Loot ESP behave, not as proof you will never get banned. Shorter sessions, alt accounts, and honest risk reading pair with this preset better than believing simple equals undetected." },
-    { type: "cta", links: [{ href: "/features/", label: "All ESP features" }, { href: "/blog/dayz-esp-setup-basics/", label: "ESP setup basics" }, { href: "/blog/dayz-loot-esp-filter-guide/", label: "Loot filter guide" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/features/", label: "All ESP features" }, { href: "/blog/dayz-esp-setup-basics/", label: "ESP setup basics" }, { href: "/blog/dayz-loot-esp-filter-guide/", label: "Loot filter guide" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

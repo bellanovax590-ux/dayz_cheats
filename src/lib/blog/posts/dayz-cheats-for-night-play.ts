@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzCheatsForNightPlayPost: BlogPost = {
   slug: "dayz-cheats-for-night-play",
@@ -452,7 +453,7 @@ export const dayzCheatsForNightPlayPost: BlogPost = {
           label: "Clean overlay tips"
         },
         {
-          href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz",
+          href: CHECKOUT_URL,
           label: "Get DayZ Cheats"
         }
       ]

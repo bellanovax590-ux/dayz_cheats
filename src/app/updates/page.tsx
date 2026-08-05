@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
+import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { createPageMetadata } from "@/lib/seo";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "DayZ Cheats Updates – BattlEye Status & Patch Notes",
@@ -25,6 +26,19 @@ export default function UpdatesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
+            webPageSchema({
+              name: "DayZ Cheats Updates",
+              description:
+                "DayZ cheats update status, BattlEye patch guidance, and maintenance notes.",
+              path: "/updates/",
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
             breadcrumbSchema([
               { name: "Home", path: "/" },
               { name: "DayZ Cheats Updates", path: "/updates/" },
@@ -35,11 +49,23 @@ export default function UpdatesPage() {
       <PageHero
         eyebrow="Updates"
         title="DayZ cheats updates & status"
-        description="Check loader status after DayZ patches and BattlEye maintenance before you enable ESP, aimbot, or radar."
+        description="Check DayZ cheats loader status after patches and BattlEye maintenance before you enable ESP, aimbot, or radar."
         icon={RefreshCw}
       />
+      <section className="border-b border-white/10 px-4 py-6 sm:px-8">
+        <div className="mx-auto max-w-3xl">
+          <Breadcrumbs
+            items={[{ label: "Home", href: "/" }, { label: "Updates" }]}
+          />
+        </div>
+      </section>
       <section className="px-4 py-14 sm:px-8">
         <div className="mx-auto max-w-3xl space-y-6 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+          <p>
+            This DayZ cheats updates page tracks loader status and patch-day
+            guidance. Review it whenever Steam ships a new DayZ build or BattlEye
+            maintenance is announced.
+          </p>
           <div className="border border-[#bf5aff]/30 bg-[#bf5aff]/5 p-5">
             <p className="font-bold uppercase tracking-wide text-white">
               Current status: Operational

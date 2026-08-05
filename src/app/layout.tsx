@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     "DayZ cheats with Player ESP, Loot ESP, aimbot, wallhack-style visibility, radar, and triggerbot-style recoil assist. View features, pricing, blog guides, updates, and support on dayzcheat.net.",
   keywords: [...PRIMARY_KEYWORDS],
   alternates: {
-    canonical: "/",
     types: {
       "application/rss+xml": `${SITE_URL}/feed.xml`,
     },
@@ -97,7 +96,13 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "DayZ Cheats",
-  alternateName: ["dayzcheat.net", "Zadeyo DayZ Cheats"],
+  alternateName: [
+    "dayzcheat.net",
+    "Zadeyo DayZ Cheats",
+    "dayz cheats",
+    "dayz esp",
+    "dayz aimbot",
+  ],
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",

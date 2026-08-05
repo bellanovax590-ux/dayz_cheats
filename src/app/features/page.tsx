@@ -3,7 +3,7 @@ import { FeaturesShowcase } from "@/components/shared/FeaturesShowcase";
 import { Breadcrumbs } from "@/components/shared/Breadcrumbs";
 import { PRIMARY_KEYWORDS } from "@/lib/keywords";
 import { createPageMetadata } from "@/lib/seo";
-import { breadcrumbSchema, featuresItemListSchema } from "@/lib/schema";
+import { breadcrumbSchema, featuresItemListSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = createPageMetadata({
   title: "DayZ Cheat Features – ESP, Aimbot & Radar",
@@ -24,6 +24,19 @@ export const metadata: Metadata = createPageMetadata({
 export default function FeaturesPage() {
   return (
     <main className="flex-1 overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            webPageSchema({
+              name: "DayZ Cheat Features – ESP, Aimbot & Radar",
+              description:
+                "Explore DayZ cheat modules: Player ESP, Loot ESP, aimbot, and 2D radar on dayzcheat.net.",
+              path: "/features/",
+            }),
+          ),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

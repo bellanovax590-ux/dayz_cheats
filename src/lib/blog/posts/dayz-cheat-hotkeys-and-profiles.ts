@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzCheatHotkeysAndProfilesPost: BlogPost = {
   slug: "dayz-cheat-hotkeys-and-profiles",
@@ -332,7 +333,7 @@ export const dayzCheatHotkeysAndProfilesPost: BlogPost = {
         { href: "/blog/dayz-pvp-aimbot-profiles/", label: "PvP aimbot profiles" },
         { href: "/blog/keep-dayz-overlay-clean/", label: "Clean overlay" },
         { href: "/faq/", label: "FAQ" },
-        { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" },
+        { href: CHECKOUT_URL, label: "Get DayZ Cheats" },
       ],
     },
   ],

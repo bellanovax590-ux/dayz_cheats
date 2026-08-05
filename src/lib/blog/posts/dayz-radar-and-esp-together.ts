@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzRadarAndEspTogetherPost: BlogPost = {
   slug: "dayz-radar-and-esp-together",
@@ -81,6 +82,6 @@ export const dayzRadarAndEspTogetherPost: BlogPost = {
     { type: "p", text: "Bind radar toggle separately from Player ESP and practice shrinking or disabling it during CQB. Drivers who stare at minimap rear-end trees; breach players who watch blips miss muzzle flashes center screen. Ultrawide users should verify aspect settings so blips align with world positions before blaming wrong directions on personal skill." },
     { type: "p", text: "Save a Fight profile with radar minimal or off and Player ESP tightened for indoor work. Save Travel with radar on for open roads and rotations between towns. Profile swaps at zone boundaries beat menu diving mid-contact. Hotkeys for radar off should be as drilled as panic keys for loot layers." },
     { type: "p", text: "Read /updates/ before sessions that use the full stack. Radar and ESP together still break DayZ terms on BattlEye servers — combining tools does not divide ban risk. Green status means version match today, not permanent safety. Shorter first sessions after patches, alt accounts for experiments, and honest acceptance of enforcement exposure beat believing a tidy minimap makes you undetected." },
-    { type: "cta", links: [{ href: "/features/", label: "Radar and ESP on /features/" }, { href: "/faq/", label: "FAQ and policies" }, { href: "/support/", label: "Layer troubleshooting" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/features/", label: "Radar and ESP on /features/" }, { href: "/faq/", label: "FAQ and policies" }, { href: "/support/", label: "Layer troubleshooting" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

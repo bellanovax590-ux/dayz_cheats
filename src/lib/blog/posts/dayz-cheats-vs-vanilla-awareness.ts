@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzCheatsVsVanillaAwarenessPost: BlogPost = {
   slug: "dayz-cheats-vs-vanilla-awareness",
@@ -84,6 +85,6 @@ export const dayzCheatsVsVanillaAwarenessPost: BlogPost = {
     { type: "p", text: "Hiding overlay use from squadmates while they play vanilla creates social friction that outlasts any firefight win. Honest conversations about risk, server rules, and clip policies matter on mil-sim hosts with admin review. dayzcheat.net tools do not make admissions safe — they make your personal ethics visible when kills look suspicious. Peer pressure to run full stacks because friends do is a social choice, not a safety upgrade." },
     { type: "p", text: "Believing low-profile ESP equals zero BattlEye risk confuses two different problems. Thin overlays may draw fewer player reports than obvious aimbot clips, but unauthorized tools still violate DayZ terms on official servers. Enforcement does not grade your restraint. Read /updates/, use alts if needed, and accept that vanilla awareness is the only path with no third-party injection exposure." },
     { type: "p", text: "Never reviewing deaths without overlays guarantees skill atrophy. Record one vanilla-style death review weekly even if you cheat daily — what audio warned you, what angle failed, whether ESP falsely calmed you. That habit keeps humility intact and clarifies whether dayzcheat.net tools solve your actual bottleneck or just mask map ignorance. Informed tradeoffs beat autopilot toggles every season." },
-    { type: "cta", links: [{ href: "/features/", label: "Compare features on /features/" }, { href: "/faq/", label: "FAQ and ban policy" }, { href: "/support/", label: "Questions before you buy" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/features/", label: "Compare features on /features/" }, { href: "/faq/", label: "FAQ and ban policy" }, { href: "/support/", label: "Questions before you buy" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

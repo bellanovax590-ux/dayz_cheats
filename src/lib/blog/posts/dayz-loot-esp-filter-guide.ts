@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzLootEspFilterGuidePost: BlogPost = {
   slug: "dayz-loot-esp-filter-guide",
@@ -92,6 +93,6 @@ export const dayzLootEspFilterGuidePost: BlogPost = {
     { type: "p", text: "Verify quality and condition filters before inland trips. Hiding ruined guns is smart until you set the bar so high that nothing highlights and you assume a building is empty. Test filter thresholds on coast with an empty inventory — five minutes of tweaking beats losing a loaded kit because you never saw the one working rifle on the floor. Adjust in small steps, not max-quality overnight jumps." },
     { type: "p", text: "Bind or plan a loot-off panic before PvP pockets. Floor labels during firefights cover muzzle flashes and player movement. Strip loot ESP when shots fire; restore it only when Player ESP says the block is quiet and you commit to searching. Many deaths happen because someone toggled every category on and stared at medical text while a third party pushed the stairwell." },
     { type: "p", text: "Read /updates/ before long loot sessions. Patch days can change item classes, menu category names, or overlay behavior even when your saved numbers look identical. BattlEye maintenance windows are bad times to marathon hospital routes with outdated builds. Loot ESP saves time when version, filters, and Player ESP discipline align — it does not make you undetected or safe from enforcement on official servers." },
-    { type: "cta", links: [{ href: "/blog/dayz-medical-loot-esp-hospitals/", label: "Hospital loot guide" }, { href: "/blog/dayz-military-base-loot-with-esp/", label: "Military base loot" }, { href: "/pricing/", label: "See plans" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/blog/dayz-medical-loot-esp-hospitals/", label: "Hospital loot guide" }, { href: "/blog/dayz-military-base-loot-with-esp/", label: "Military base loot" }, { href: "/pricing/", label: "See plans" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

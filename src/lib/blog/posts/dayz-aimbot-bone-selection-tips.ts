@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzAimbotBoneSelectionTipsPost: BlogPost = {
   slug: "dayz-aimbot-bone-selection-tips",
@@ -94,6 +95,6 @@ export const dayzAimbotBoneSelectionTipsPost: BlogPost = {
     { type: "p", text: "Ignoring target posture wastes bone tuning. Prone players, crouched looters, and climbing survivors change effective bone positions. ESP tells you someone is there; your job is still to verify posture before you expect headshots to connect. Assist on the wrong bone against a prone target produces miss streaks that make players crank FOV wider — which increases report visibility instead of fixing alignment." },
     { type: "p", text: "Pairing head bones with wide FOV and low smoothing stacks two loud choices at once. Each setting alone can be controlled; together they produce snap highlights that reviewers flag quickly on community servers with active admins. If you insist on head priority indoors, tighten FOV and raise smoothing so motion looks human-adjacent. BattlEye does not care about your combo — spectators and replay watchers do." },
     { type: "p", text: "Believing bone choice reduces BattlEye risk is flat wrong. Any aimbot bone violates game rules on protected hosts. Chest versus head changes kill speed and clip appearance, not enforcement math. Read /updates/ every session, keep panic keys tested, and consider ESP-only play if combat assist stress outweighs benefit. dayzcheat.net exposes bone options because players ask — not because bones make cheating safe or undetected." },
-    { type: "cta", links: [{ href: "/blog/aimbot-fov-and-smoothing/", label: "FOV & smoothing guide" }, { href: "/blog/dayz-pvp-aimbot-profiles/", label: "PvP profiles" }, { href: "/features/", label: "Feature list" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/blog/aimbot-fov-and-smoothing/", label: "FOV & smoothing guide" }, { href: "/blog/dayz-pvp-aimbot-profiles/", label: "PvP profiles" }, { href: "/features/", label: "Feature list" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

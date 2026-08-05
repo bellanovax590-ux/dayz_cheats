@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const longRangeDayzSniperAssistSettingsPost: BlogPost = {
   slug: "long-range-dayz-sniper-assist-settings",
@@ -389,7 +390,7 @@ export const longRangeDayzSniperAssistSettingsPost: BlogPost = {
         { href: "/blog/aimbot-fov-and-smoothing/", label: "FOV & smoothing" },
         { href: "/blog/dayz-aimbot-bone-selection-tips/", label: "Bone selection" },
         { href: "/blog/dayz-pvp-aimbot-profiles/", label: "PvP profiles" },
-        { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" },
+        { href: CHECKOUT_URL, label: "Get DayZ Cheats" },
       ],
     },
   ],

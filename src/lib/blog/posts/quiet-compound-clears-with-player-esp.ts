@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const quietCompoundClearsWithPlayerEspPost: BlogPost = {
   slug: "quiet-compound-clears-with-player-esp",
@@ -297,7 +298,7 @@ export const quietCompoundClearsWithPlayerEspPost: BlogPost = {
         { href: "/blog/dayz-military-base-loot-with-esp/", label: "Military loot runs" },
         { href: "/blog/keep-dayz-overlay-clean/", label: "Clean overlay" },
         { href: "/blog/dayz-pvp-aimbot-profiles/", label: "PvP aimbot profiles" },
-        { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" },
+        { href: CHECKOUT_URL, label: "Get DayZ Cheats" },
       ],
     },
   ],

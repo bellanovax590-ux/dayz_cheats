@@ -51,8 +51,8 @@ export default function FaqPage() {
       />
       <PageHero
         eyebrow="FAQ"
-        title="Frequently asked questions"
-        description="Straight answers about BattlEye risk, features, compatibility, and support — without guaranteed-undetected claims."
+        title="DayZ cheats FAQ"
+        description="Straight answers about DayZ cheats, BattlEye risk, ESP, aimbot, compatibility, and support — without guaranteed-undetected claims."
         icon={CircleHelp}
       />
       <section className="px-4 py-14 sm:px-8">
@@ -60,6 +60,11 @@ export default function FaqPage() {
           <Breadcrumbs
             items={[{ label: "Home", href: "/" }, { label: "FAQ" }]}
           />
+          <p className="mb-8 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+            Use this DayZ cheats FAQ before you buy or launch. Questions cover
+            BattlEye enforcement, ESP and aimbot features, HWID resets, refunds,
+            and what to expect after DayZ patches.
+          </p>
           <FaqAccordion items={faqItems} />
         </div>
       </section>

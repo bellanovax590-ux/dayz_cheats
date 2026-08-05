@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const aimbotFovAndSmoothingPost: BlogPost = {
   slug: "aimbot-fov-and-smoothing",
@@ -69,6 +70,6 @@ export const aimbotFovAndSmoothingPost: BlogPost = {
     { type: "p", text: "Players often treat smoothing as a fix for bad crosshair placement. Smoothing hides jitter; it does not replace pre-aiming doorways and holding angles. If you rely on assist to find targets you never looked at, FOV creep follows until clips look inhuman. Pair modest assist with Player ESP callouts and vanilla peek discipline. Aimbot is a fine-tune on aim you mostly supply yourself — not autopilot because you enabled a toggle." },
     { type: "p", text: "Skipping panic key practice ranks high on the mistake list. You need a bind that disables aimbot instantly when a fight turns messy, a friendly crosses your sight, or you enter a town where reports stack. Menu diving to turn assist off mid-contact kills you and looks worse on recording. Drill panic binds on coast before inland trips. Broken panic keys turn small FOV mistakes into long ban stories when you cannot shut assist off." },
     { type: "p", text: "Believing low FOV equals low BattlEye risk is the most dangerous misunderstanding. BattlEye does not grade your slider — any unauthorized combat assist violates DayZ rules and can flag signatures after updates. Controlled settings reduce player reports and clip obviousness; they do not grant immunity. Read /updates/ every launch, keep sessions shorter after patch weeks, and stay ESP-only if the risk outweighs the benefit. Honest math beats hero configs every season." },
-    { type: "cta", links: [{ href: "/blog/dayz-aimbot-bone-selection-tips/", label: "Bone selection tips" }, { href: "/blog/dayz-pvp-aimbot-profiles/", label: "PvP aimbot profiles" }, { href: "/pricing/", label: "View pricing" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/blog/dayz-aimbot-bone-selection-tips/", label: "Bone selection tips" }, { href: "/blog/dayz-pvp-aimbot-profiles/", label: "PvP aimbot profiles" }, { href: "/pricing/", label: "View pricing" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

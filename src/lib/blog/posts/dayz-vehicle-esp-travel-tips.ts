@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzVehicleEspTravelTipsPost: BlogPost = {
   slug: "dayz-vehicle-esp-travel-tips",
@@ -500,7 +501,7 @@ export const dayzVehicleEspTravelTipsPost: BlogPost = {
           label: "2D radar guide"
         },
         {
-          href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz",
+          href: CHECKOUT_URL,
           label: "Get DayZ Cheats"
         }
       ]

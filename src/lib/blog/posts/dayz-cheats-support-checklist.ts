@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzCheatsSupportChecklistPost: BlogPost = {
   slug: "dayz-cheats-support-checklist",
@@ -76,6 +77,6 @@ export const dayzCheatsSupportChecklistPost: BlogPost = {
     { type: "p", text: "Read /faq/ on refunds, ban policy, and HWID resets before you demand exceptions support may not offer. BattlEye bans are enforcement outcomes, not menu bugs. Subscription time lost during verified outages may have policy paths; personal raid schedules do not. Calm tickets with accurate facts stay eligible for real fixes; rage bumps without new logs get ignored faster." },
     { type: "p", text: "Check status color and Discord or site banners before ticket spam on patch days. Red weeks generate duplicate tickets asking the same question fifty times. If notes say wait, waiting is the fix until developers post green. Support cannot accelerate BattlEye maintenance or Bohemia patches — they can update loaders when ready. Patience on public status beats private guessing." },
     { type: "p", text: "Remember support helps with access and real bugs — not with making cheating safe or undetected on official servers. No ticket removes third-party overlay risk. Keep alt accounts, read changelogs every launch, and document your setup so future tickets are one message instead of five. Structured self-checks first, human support second — that order saves hours for you and staff alike." },
-    { type: "cta", links: [{ href: "/features/", label: "DayZ cheat feature list" }, { href: "/faq/", label: "FAQ and HWID policy" }, { href: "/support/", label: "Open a support ticket" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/features/", label: "DayZ cheat feature list" }, { href: "/faq/", label: "FAQ and HWID policy" }, { href: "/support/", label: "Open a support ticket" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

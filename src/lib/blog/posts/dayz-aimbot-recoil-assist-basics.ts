@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const dayzAimbotRecoilAssistBasicsPost: BlogPost = {
   slug: "dayz-aimbot-recoil-assist-basics",
@@ -77,6 +78,6 @@ export const dayzAimbotRecoilAssistBasicsPost: BlogPost = {
     { type: "p", text: "Leaving combat assists enabled during heal or inventory animations causes accidental snaps toward random contacts. Rebind aim keys away from WASD reach or disable all combat toggles before bandaging. Death mid-med animation because a toggle stayed on is common and entirely self-inflicted. Fight flow includes medical timing vanilla players respect — overlays do not pause enemy patience." },
     { type: "p", text: "Skipping panic key drills ranks high among recoil assist failures. You need an instant off bind when friendlies cross your sight, fights turn messy, or you enter towns where reports stack. Menu diving during contact kills you and looks worse than controlled bursts ever would. Practice panic on coast before inland gear trips — broken keys turn modest settings into long ban stories." },
     { type: "p", text: "Believing moderate recoil settings reduce BattlEye risk is incorrect. Any unauthorized combat assist violates DayZ rules on protected hosts regardless of slider values. Controlled recoil may reduce obviousness in death replays; it does not remove enforcement exposure. Read changelogs every session, keep sessions shorter after patch weeks, and stay ESP-only if combat stress outweighs benefit. dayzcheat.net sells tools, not ban immunity." },
-    { type: "cta", links: [{ href: "/features/", label: "Aimbot and recoil on /features/" }, { href: "/faq/", label: "FAQ and risk policy" }, { href: "/support/", label: "Combat feature support" }, { href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz", label: "Get DayZ Cheats" }] },
+    { type: "cta", links: [{ href: "/features/", label: "Aimbot and recoil on /features/" }, { href: "/faq/", label: "FAQ and risk policy" }, { href: "/support/", label: "Combat feature support" }, { href: CHECKOUT_URL, label: "Get DayZ Cheats" }] },
   ],
 };

@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog/types";
+import { CHECKOUT_URL } from "@/lib/checkout";
 
 export const howToUseDayz2dRadarPost: BlogPost = {
   slug: "how-to-use-dayz-2d-radar",
@@ -320,7 +321,7 @@ export const howToUseDayz2dRadarPost: BlogPost = {
           label: "Explore DayZ features"
         },
         {
-          href: "https://zadeyo.com/go/BELLA?to=%2Fproducts%2Fdayz",
+          href: CHECKOUT_URL,
           label: "Get DayZ Cheats"
         }
       ]

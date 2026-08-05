@@ -53,6 +53,11 @@ export default function PricingPage() {
           <Breadcrumbs
             items={[{ label: "Home", href: "/" }, { label: "Pricing" }]}
           />
+          <p className="mb-8 text-sm leading-relaxed text-[#c8bfd8] sm:text-base">
+            DayZ cheats pricing covers three access plans — 1 Day, 1 Week, and
+            1 Month — for ESP, aimbot, and radar modules. Select a plan below to
+            open secure checkout.
+          </p>
           <PricingPlans />
           <div className="mt-8 flex items-start gap-3 border border-amber-400/25 bg-amber-400/5 px-4 py-3 text-sm text-amber-100/90">
             <ShieldAlert
