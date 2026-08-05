@@ -1,3 +1,8 @@
+# Cloudflare Workers Builds (recommended settings in dashboard):
+#   Build command:  npm run build
+#   Deploy command: npx wrangler deploy
+# Do NOT deploy inside postbuild — Cloudflare runs deploy as a separate step.
+
 name = "dayz-cheats"
 compatibility_date = "2026-05-03"
 main = "worker.js"

@@ -1,13 +1,5 @@
-import { execSync } from "node:child_process";
+// Cloudflare Workers Builds runs `npx wrangler deploy` after `npm run build`.
+// Deploy must NOT run during postbuild — it caused 30-minute build timeouts.
+// Local deploy: npm run deploy
 
-const isCi =
-  process.env.CI === "true" ||
-  process.env.CF_PAGES === "1" ||
-  process.env.WORKERS_CI === "1" ||
-  process.cwd().startsWith("/opt/buildhome");
-
-if (!isCi) {
-  process.exit(0);
-}
-
-execSync("node scripts/ci-deploy.mjs", { stdio: "inherit" });
+export {};

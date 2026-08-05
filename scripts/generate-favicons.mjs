@@ -20,6 +20,18 @@ const sizes = [
   { file: "images/zadeyo-logo-512.png", size: 512 },
 ];
 
+const sourceMtime = fs.statSync(source).mtimeMs;
+const faviconIco = path.join(publicDir, "favicon.ico");
+const outputs = [...sizes.map(({ file }) => path.join(publicDir, file)), faviconIco];
+const outputsFresh =
+  outputs.every((file) => fs.existsSync(file)) &&
+  outputs.every((file) => fs.statSync(file).mtimeMs >= sourceMtime);
+
+if (outputsFresh) {
+  console.log("Favicons up to date, skipping regeneration.");
+  process.exit(0);
+}
+
 for (const { file, size } of sizes) {
   const out = path.join(publicDir, file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -34,6 +46,6 @@ for (const { file, size } of sizes) {
 }
 
 const favicon32 = path.join(publicDir, "favicon-32.png");
-const faviconIco = path.join(publicDir, "favicon.ico");
-fs.copyFileSync(favicon32, faviconIco);
+const faviconIcoPath = path.join(publicDir, "favicon.ico");
+fs.copyFileSync(favicon32, faviconIcoPath);
 console.log("Wrote favicon.ico (48x32 PNG favicon for Google)");
